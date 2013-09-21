@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tile.h"
+#import "Unit.h"
 
 @interface InGameViewController : UIViewController
 - (IBAction)tile:(id)sender;

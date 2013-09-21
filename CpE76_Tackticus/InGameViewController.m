@@ -14,6 +14,7 @@
 
 @implementation InGameViewController{
     NSArray *Board;
+    Unit *MAGE, *KNIGHT, *SCOUT;
 }
 
 
@@ -30,24 +31,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	/* Tile format: [Owner Type HP Damage MoveRange ActackRage SkillDamage SkillRange] */
-    Board = [NSArray arrayWithObjects:@"none none 0 0 0 0 0 0",
-             @"none none 0 0 0 0 0 0",
-             @"none none 0 0 0 0 0 0",
-             @"none none 0 0 0 0 0 0",
-             @"none none 0 0 0 0 0 0",
-             @"none none 0 0 0 0 0 0",
-             @"none none 0 0 0 0 0 0",
-             @"none none 0 0 0 0 0 0",
-             @"none none 0 0 0 0 0 0",
-             @"none none 0 0 0 0 0 0",
-             @"none none 0 0 0 0 0 0",
-             @"none none 0 0 0 0 0 0",
-             @"none none 0 0 0 0 0 0",
-             @"none none 0 0 0 0 0 0",
-             @"none none 0 0 0 0 0 0",
-             @"none none 0 0 0 0 0 0",
-             nil];
+	
+    self.navigationItem.hidesBackButton = YES;
+    
+    /* INIT BASE STATS OF UNITS */
+    MAGE = [[Unit alloc] initType:@"mage" hp: 5 bDamage: 1 sDamage: -3 moveRange: 2 atkRange: 2 skillRange: 2];
+    KNIGHT = [[Unit alloc] initType:@"knight" hp: 10 bDamage: 2 sDamage: 3 moveRange: 1 atkRange: 2 skillRange: 2];
+    SCOUT = [[Unit alloc] initType:@"scout" hp: 5 bDamage: 3 sDamage: 5 moveRange: 2 atkRange: 2 skillRange: 2];
+    
+    Tile  *emptyTile = [[Tile alloc] initWithOwner:@"none" AndUnit:nil AndCurrentHP:0];
+    Board = [NSArray arrayWithObjects: emptyTile, emptyTile, emptyTile,
+             emptyTile, emptyTile, emptyTile, emptyTile,
+             emptyTile, emptyTile, emptyTile, emptyTile,
+             emptyTile, emptyTile, emptyTile, emptyTile, emptyTile, nil];
+    
+    //load the position of each unit of a player here.. (change Board data)
+    //updateBoard() - updates the buttons/board based on the Board array
 }
 
 - (void)didReceiveMemoryWarning

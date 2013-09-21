@@ -21,6 +21,8 @@
 		C3CB929B17E9854000A8E255 /* test_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3CB929A17E9854000A8E255 /* test_2.jpg */; };
 		C3CB929D17E9879900A8E255 /* test_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3CB929C17E9879900A8E255 /* test_1.jpg */; };
 		C3F6EB5317ED34CD0085F7DF /* InGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6EB5217ED34CD0085F7DF /* InGameViewController.m */; };
+		C3F6EB5717ED3BCA0085F7DF /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6EB5617ED3BCA0085F7DF /* Tile.m */; };
+		C3F6EB5D17ED41F00085F7DF /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6EB5C17ED41F00085F7DF /* Unit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,10 @@
 		C3CB929C17E9879900A8E255 /* test_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test_1.jpg; sourceTree = "<group>"; };
 		C3F6EB5117ED34CD0085F7DF /* InGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InGameViewController.h; sourceTree = "<group>"; };
 		C3F6EB5217ED34CD0085F7DF /* InGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InGameViewController.m; sourceTree = "<group>"; };
+		C3F6EB5517ED3BCA0085F7DF /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
+		C3F6EB5617ED3BCA0085F7DF /* Tile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tile.m; sourceTree = "<group>"; };
+		C3F6EB5B17ED41F00085F7DF /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unit.h; sourceTree = "<group>"; };
+		C3F6EB5C17ED41F00085F7DF /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,10 @@
 				C3CB927E17E97D2700A8E255 /* Supporting Files */,
 				C3F6EB5117ED34CD0085F7DF /* InGameViewController.h */,
 				C3F6EB5217ED34CD0085F7DF /* InGameViewController.m */,
+				C3F6EB5517ED3BCA0085F7DF /* Tile.h */,
+				C3F6EB5617ED3BCA0085F7DF /* Tile.m */,
+				C3F6EB5B17ED41F00085F7DF /* Unit.h */,
+				C3F6EB5C17ED41F00085F7DF /* Unit.m */,
 			);
 			path = CpE76_Tackticus;
 			sourceTree = "<group>";
@@ -190,6 +200,8 @@
 				C3CB928817E97D2700A8E255 /* AppDelegate.m in Sources */,
 				C3CB929417E97D2700A8E255 /* ViewController.m in Sources */,
 				C3F6EB5317ED34CD0085F7DF /* InGameViewController.m in Sources */,
+				C3F6EB5717ED3BCA0085F7DF /* Tile.m in Sources */,
+				C3F6EB5D17ED41F00085F7DF /* Unit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
