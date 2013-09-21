@@ -20,6 +20,7 @@
 		C3CB929417E97D2700A8E255 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB929317E97D2700A8E255 /* ViewController.m */; };
 		C3CB929B17E9854000A8E255 /* test_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3CB929A17E9854000A8E255 /* test_2.jpg */; };
 		C3CB929D17E9879900A8E255 /* test_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3CB929C17E9879900A8E255 /* test_1.jpg */; };
+		C3F6EB5317ED34CD0085F7DF /* InGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6EB5217ED34CD0085F7DF /* InGameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		C3CB929317E97D2700A8E255 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C3CB929A17E9854000A8E255 /* test_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test_2.jpg; sourceTree = "<group>"; };
 		C3CB929C17E9879900A8E255 /* test_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test_1.jpg; sourceTree = "<group>"; };
+		C3F6EB5117ED34CD0085F7DF /* InGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InGameViewController.h; sourceTree = "<group>"; };
+		C3F6EB5217ED34CD0085F7DF /* InGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InGameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				C3CB929217E97D2700A8E255 /* ViewController.h */,
 				C3CB929317E97D2700A8E255 /* ViewController.m */,
 				C3CB927E17E97D2700A8E255 /* Supporting Files */,
+				C3F6EB5117ED34CD0085F7DF /* InGameViewController.h */,
+				C3F6EB5217ED34CD0085F7DF /* InGameViewController.m */,
 			);
 			path = CpE76_Tackticus;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 				C3CB928417E97D2700A8E255 /* main.m in Sources */,
 				C3CB928817E97D2700A8E255 /* AppDelegate.m in Sources */,
 				C3CB929417E97D2700A8E255 /* ViewController.m in Sources */,
+				C3F6EB5317ED34CD0085F7DF /* InGameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +306,7 @@
 				C3CB929917E97D2700A8E255 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
