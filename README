@@ -1,0 +1,15 @@
+GUIDES AND TODO
+
+TODO:
+-create a function that will update the Board based from the Board Array.
+-create a function that will process the placement of each unit of a player, limit the number of units a player can add. Allow players to delete a unit that wasplaced already on the board.
+-Create a function/process for the combat system.
+-Create a function/process for the unit movement system.
+
+-create a process that will pass the data from one scene to the other (SetPlayerOne -> SetPlayerTwo -> InGame)
+
+Obejective C Construtor Tutorial:
+http://pixeleap.com/?p=280
+
+IOS Tutorial: Link to passing data between view controller
+www.appcoda.com/storyboards-ios-tutorial-pass-data-between-view-controller-with-segue/
