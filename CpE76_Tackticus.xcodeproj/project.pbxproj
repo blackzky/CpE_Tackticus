@@ -7,6 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3B21EAF17F2C27E0080FC92 /* archer_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9417F2C27E0080FC92 /* archer_icon.png */; };
+		C3B21EB017F2C27E0080FC92 /* black_archer.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9517F2C27E0080FC92 /* black_archer.png */; };
+		C3B21EB117F2C27E0080FC92 /* black_knight.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9617F2C27E0080FC92 /* black_knight.png */; };
+		C3B21EB217F2C27E0080FC92 /* black_mage.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9717F2C27E0080FC92 /* black_mage.png */; };
+		C3B21EB317F2C27E0080FC92 /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9817F2C27E0080FC92 /* blank.png */; };
+		C3B21EB417F2C27E0080FC92 /* damage.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9917F2C27E0080FC92 /* damage.png */; };
+		C3B21EB517F2C27E0080FC92 /* grass.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9A17F2C27E0080FC92 /* grass.png */; };
+		C3B21EB617F2C27E0080FC92 /* highlighted_black_archer.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9B17F2C27E0080FC92 /* highlighted_black_archer.png */; };
+		C3B21EB717F2C27E0080FC92 /* highlighted_black_knight.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9C17F2C27E0080FC92 /* highlighted_black_knight.png */; };
+		C3B21EB817F2C27E0080FC92 /* highlighted_black_mage.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9D17F2C27E0080FC92 /* highlighted_black_mage.png */; };
+		C3B21EB917F2C27E0080FC92 /* highlighted_white_archer.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9E17F2C27E0080FC92 /* highlighted_white_archer.png */; };
+		C3B21EBA17F2C27E0080FC92 /* highlighted_white_knight.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9F17F2C27E0080FC92 /* highlighted_white_knight.png */; };
+		C3B21EBB17F2C27E0080FC92 /* highlighted_white_mage.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21EA017F2C27E0080FC92 /* highlighted_white_mage.png */; };
+		C3B21EBC17F2C27E0080FC92 /* knight_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21EA117F2C27E0080FC92 /* knight_icon.png */; };
+		C3B21EBD17F2C27E0080FC92 /* mage_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21EA217F2C27E0080FC92 /* mage_icon.png */; };
+		C3B21EBE17F2C27E0080FC92 /* mana_cost.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21EA317F2C27E0080FC92 /* mana_cost.png */; };
+		C3B21EBF17F2C27E0080FC92 /* move.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21EA417F2C27E0080FC92 /* move.png */; };
+		C3B21EC017F2C27E0080FC92 /* range.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21EA517F2C27E0080FC92 /* range.png */; };
+		C3B21EC117F2C27E0080FC92 /* selected_black_archer.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21EA617F2C27E0080FC92 /* selected_black_archer.png */; };
+		C3B21EC217F2C27E0080FC92 /* selected_black_knight.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21EA717F2C27E0080FC92 /* selected_black_knight.png */; };
+		C3B21EC317F2C27E0080FC92 /* selected_black_mage.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21EA817F2C27E0080FC92 /* selected_black_mage.png */; };
+		C3B21EC417F2C27E0080FC92 /* selected_white_archer.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21EA917F2C27E0080FC92 /* selected_white_archer.png */; };
+		C3B21EC517F2C27E0080FC92 /* selected_white_knight.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21EAA17F2C27E0080FC92 /* selected_white_knight.png */; };
+		C3B21EC617F2C27E0080FC92 /* selected_white_mage.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21EAB17F2C27E0080FC92 /* selected_white_mage.png */; };
+		C3B21EC717F2C27E0080FC92 /* white_archer.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21EAC17F2C27E0080FC92 /* white_archer.png */; };
+		C3B21EC817F2C27E0080FC92 /* white_knight.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21EAD17F2C27E0080FC92 /* white_knight.png */; };
+		C3B21EC917F2C27E0080FC92 /* white_mage.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21EAE17F2C27E0080FC92 /* white_mage.png */; };
 		C3CB927817E97D2700A8E255 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CB927717E97D2700A8E255 /* UIKit.framework */; };
 		C3CB927A17E97D2700A8E255 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CB927917E97D2700A8E255 /* Foundation.framework */; };
 		C3CB927C17E97D2700A8E255 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CB927B17E97D2700A8E255 /* CoreGraphics.framework */; };
@@ -26,6 +53,33 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C3B21E9417F2C27E0080FC92 /* archer_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = archer_icon.png; sourceTree = "<group>"; };
+		C3B21E9517F2C27E0080FC92 /* black_archer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_archer.png; sourceTree = "<group>"; };
+		C3B21E9617F2C27E0080FC92 /* black_knight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_knight.png; sourceTree = "<group>"; };
+		C3B21E9717F2C27E0080FC92 /* black_mage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_mage.png; sourceTree = "<group>"; };
+		C3B21E9817F2C27E0080FC92 /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank.png; sourceTree = "<group>"; };
+		C3B21E9917F2C27E0080FC92 /* damage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = damage.png; sourceTree = "<group>"; };
+		C3B21E9A17F2C27E0080FC92 /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass.png; sourceTree = "<group>"; };
+		C3B21E9B17F2C27E0080FC92 /* highlighted_black_archer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highlighted_black_archer.png; sourceTree = "<group>"; };
+		C3B21E9C17F2C27E0080FC92 /* highlighted_black_knight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highlighted_black_knight.png; sourceTree = "<group>"; };
+		C3B21E9D17F2C27E0080FC92 /* highlighted_black_mage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highlighted_black_mage.png; sourceTree = "<group>"; };
+		C3B21E9E17F2C27E0080FC92 /* highlighted_white_archer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highlighted_white_archer.png; sourceTree = "<group>"; };
+		C3B21E9F17F2C27E0080FC92 /* highlighted_white_knight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highlighted_white_knight.png; sourceTree = "<group>"; };
+		C3B21EA017F2C27E0080FC92 /* highlighted_white_mage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highlighted_white_mage.png; sourceTree = "<group>"; };
+		C3B21EA117F2C27E0080FC92 /* knight_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knight_icon.png; sourceTree = "<group>"; };
+		C3B21EA217F2C27E0080FC92 /* mage_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mage_icon.png; sourceTree = "<group>"; };
+		C3B21EA317F2C27E0080FC92 /* mana_cost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mana_cost.png; sourceTree = "<group>"; };
+		C3B21EA417F2C27E0080FC92 /* move.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = move.png; sourceTree = "<group>"; };
+		C3B21EA517F2C27E0080FC92 /* range.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = range.png; sourceTree = "<group>"; };
+		C3B21EA617F2C27E0080FC92 /* selected_black_archer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected_black_archer.png; sourceTree = "<group>"; };
+		C3B21EA717F2C27E0080FC92 /* selected_black_knight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected_black_knight.png; sourceTree = "<group>"; };
+		C3B21EA817F2C27E0080FC92 /* selected_black_mage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected_black_mage.png; sourceTree = "<group>"; };
+		C3B21EA917F2C27E0080FC92 /* selected_white_archer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected_white_archer.png; sourceTree = "<group>"; };
+		C3B21EAA17F2C27E0080FC92 /* selected_white_knight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected_white_knight.png; sourceTree = "<group>"; };
+		C3B21EAB17F2C27E0080FC92 /* selected_white_mage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected_white_mage.png; sourceTree = "<group>"; };
+		C3B21EAC17F2C27E0080FC92 /* white_archer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_archer.png; sourceTree = "<group>"; };
+		C3B21EAD17F2C27E0080FC92 /* white_knight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_knight.png; sourceTree = "<group>"; };
+		C3B21EAE17F2C27E0080FC92 /* white_mage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_mage.png; sourceTree = "<group>"; };
 		C3CB927317E97D2700A8E255 /* CpE76_Tackticus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CpE76_Tackticus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3CB927717E97D2700A8E255 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C3CB927917E97D2700A8E255 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -66,6 +120,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C3B21E9317F2C2620080FC92 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C3B21E9417F2C27E0080FC92 /* archer_icon.png */,
+				C3B21E9517F2C27E0080FC92 /* black_archer.png */,
+				C3B21E9617F2C27E0080FC92 /* black_knight.png */,
+				C3B21E9717F2C27E0080FC92 /* black_mage.png */,
+				C3B21E9817F2C27E0080FC92 /* blank.png */,
+				C3B21E9917F2C27E0080FC92 /* damage.png */,
+				C3B21E9A17F2C27E0080FC92 /* grass.png */,
+				C3B21E9B17F2C27E0080FC92 /* highlighted_black_archer.png */,
+				C3B21E9C17F2C27E0080FC92 /* highlighted_black_knight.png */,
+				C3B21E9D17F2C27E0080FC92 /* highlighted_black_mage.png */,
+				C3B21E9E17F2C27E0080FC92 /* highlighted_white_archer.png */,
+				C3B21E9F17F2C27E0080FC92 /* highlighted_white_knight.png */,
+				C3B21EA017F2C27E0080FC92 /* highlighted_white_mage.png */,
+				C3B21EA117F2C27E0080FC92 /* knight_icon.png */,
+				C3B21EA217F2C27E0080FC92 /* mage_icon.png */,
+				C3B21EA317F2C27E0080FC92 /* mana_cost.png */,
+				C3B21EA417F2C27E0080FC92 /* move.png */,
+				C3B21EA517F2C27E0080FC92 /* range.png */,
+				C3B21EA617F2C27E0080FC92 /* selected_black_archer.png */,
+				C3B21EA717F2C27E0080FC92 /* selected_black_knight.png */,
+				C3B21EA817F2C27E0080FC92 /* selected_black_mage.png */,
+				C3B21EA917F2C27E0080FC92 /* selected_white_archer.png */,
+				C3B21EAA17F2C27E0080FC92 /* selected_white_knight.png */,
+				C3B21EAB17F2C27E0080FC92 /* selected_white_mage.png */,
+				C3B21EAC17F2C27E0080FC92 /* white_archer.png */,
+				C3B21EAD17F2C27E0080FC92 /* white_knight.png */,
+				C3B21EAE17F2C27E0080FC92 /* white_mage.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		C3CB926817E97D2700A8E255 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +184,7 @@
 		C3CB927D17E97D2700A8E255 /* CpE76_Tackticus */ = {
 			isa = PBXGroup;
 			children = (
+				C3B21E9317F2C2620080FC92 /* Resources */,
 				C3CB929C17E9879900A8E255 /* test_1.jpg */,
 				C3CB929A17E9854000A8E255 /* test_2.jpg */,
 				C3CB928617E97D2700A8E255 /* AppDelegate.h */,
@@ -186,6 +275,33 @@
 				C3CB929117E97D2700A8E255 /* MainStoryboard.storyboard in Resources */,
 				C3CB929B17E9854000A8E255 /* test_2.jpg in Resources */,
 				C3CB929D17E9879900A8E255 /* test_1.jpg in Resources */,
+				C3B21EAF17F2C27E0080FC92 /* archer_icon.png in Resources */,
+				C3B21EB017F2C27E0080FC92 /* black_archer.png in Resources */,
+				C3B21EB117F2C27E0080FC92 /* black_knight.png in Resources */,
+				C3B21EB217F2C27E0080FC92 /* black_mage.png in Resources */,
+				C3B21EB317F2C27E0080FC92 /* blank.png in Resources */,
+				C3B21EB417F2C27E0080FC92 /* damage.png in Resources */,
+				C3B21EB517F2C27E0080FC92 /* grass.png in Resources */,
+				C3B21EB617F2C27E0080FC92 /* highlighted_black_archer.png in Resources */,
+				C3B21EB717F2C27E0080FC92 /* highlighted_black_knight.png in Resources */,
+				C3B21EB817F2C27E0080FC92 /* highlighted_black_mage.png in Resources */,
+				C3B21EB917F2C27E0080FC92 /* highlighted_white_archer.png in Resources */,
+				C3B21EBA17F2C27E0080FC92 /* highlighted_white_knight.png in Resources */,
+				C3B21EBB17F2C27E0080FC92 /* highlighted_white_mage.png in Resources */,
+				C3B21EBC17F2C27E0080FC92 /* knight_icon.png in Resources */,
+				C3B21EBD17F2C27E0080FC92 /* mage_icon.png in Resources */,
+				C3B21EBE17F2C27E0080FC92 /* mana_cost.png in Resources */,
+				C3B21EBF17F2C27E0080FC92 /* move.png in Resources */,
+				C3B21EC017F2C27E0080FC92 /* range.png in Resources */,
+				C3B21EC117F2C27E0080FC92 /* selected_black_archer.png in Resources */,
+				C3B21EC217F2C27E0080FC92 /* selected_black_knight.png in Resources */,
+				C3B21EC317F2C27E0080FC92 /* selected_black_mage.png in Resources */,
+				C3B21EC417F2C27E0080FC92 /* selected_white_archer.png in Resources */,
+				C3B21EC517F2C27E0080FC92 /* selected_white_knight.png in Resources */,
+				C3B21EC617F2C27E0080FC92 /* selected_white_mage.png in Resources */,
+				C3B21EC717F2C27E0080FC92 /* white_archer.png in Resources */,
+				C3B21EC817F2C27E0080FC92 /* white_knight.png in Resources */,
+				C3B21EC917F2C27E0080FC92 /* white_mage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

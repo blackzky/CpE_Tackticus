@@ -13,5 +13,9 @@
 @interface InGameViewController : UIViewController
 - (IBAction)tile:(id)sender;
 - (IBAction)playerAction:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *tileOutlet;
+
+
+-(void) updateBoard:(int)index;
 
 @end
