@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C3B21EAF17F2C27E0080FC92 /* archer_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9417F2C27E0080FC92 /* archer_icon.png */; };
+		C3B21EAF17F2C27E0080FC92 /* scout_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9417F2C27E0080FC92 /* scout_icon.png */; };
 		C3B21EB017F2C27E0080FC92 /* black_archer.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9517F2C27E0080FC92 /* black_archer.png */; };
 		C3B21EB117F2C27E0080FC92 /* black_knight.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9617F2C27E0080FC92 /* black_knight.png */; };
 		C3B21EB217F2C27E0080FC92 /* black_mage.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9717F2C27E0080FC92 /* black_mage.png */; };
@@ -53,7 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C3B21E9417F2C27E0080FC92 /* archer_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = archer_icon.png; sourceTree = "<group>"; };
+		C3B21E9417F2C27E0080FC92 /* scout_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scout_icon.png; sourceTree = "<group>"; };
 		C3B21E9517F2C27E0080FC92 /* black_archer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_archer.png; sourceTree = "<group>"; };
 		C3B21E9617F2C27E0080FC92 /* black_knight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_knight.png; sourceTree = "<group>"; };
 		C3B21E9717F2C27E0080FC92 /* black_mage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_mage.png; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 		C3B21E9317F2C2620080FC92 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C3B21E9417F2C27E0080FC92 /* archer_icon.png */,
+				C3B21E9417F2C27E0080FC92 /* scout_icon.png */,
 				C3B21E9517F2C27E0080FC92 /* black_archer.png */,
 				C3B21E9617F2C27E0080FC92 /* black_knight.png */,
 				C3B21E9717F2C27E0080FC92 /* black_mage.png */,
@@ -275,7 +275,7 @@
 				C3CB929117E97D2700A8E255 /* MainStoryboard.storyboard in Resources */,
 				C3CB929B17E9854000A8E255 /* test_2.jpg in Resources */,
 				C3CB929D17E9879900A8E255 /* test_1.jpg in Resources */,
-				C3B21EAF17F2C27E0080FC92 /* archer_icon.png in Resources */,
+				C3B21EAF17F2C27E0080FC92 /* scout_icon.png in Resources */,
 				C3B21EB017F2C27E0080FC92 /* black_archer.png in Resources */,
 				C3B21EB117F2C27E0080FC92 /* black_knight.png in Resources */,
 				C3B21EB217F2C27E0080FC92 /* black_mage.png in Resources */,

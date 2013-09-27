@@ -15,6 +15,16 @@
 - (IBAction)playerAction:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *tileOutlet;
 
+@property (strong, nonatomic) IBOutlet UILabel *curUnitOwner;
+@property (strong, nonatomic) IBOutlet UIImageView *curUnitType;
+@property (strong, nonatomic) IBOutlet UIProgressView *curUnitHp;
+@property (strong, nonatomic) IBOutlet UIProgressView *curUnitMp;
+@property (strong, nonatomic) IBOutlet UILabel *curUnitAtk;
+@property (strong, nonatomic) IBOutlet UILabel *curUnitMR;
+@property (strong, nonatomic) IBOutlet UILabel *curUnitAR;
+@property (strong, nonatomic) IBOutlet UILabel *curUnitSkillCost;
+
+
 
 -(void)clearSelected;
 -(void) updateBoard;

@@ -141,11 +141,35 @@
 }
 
 -(void)viewTile:(Tile *)tile{
-    if([tile.owner isEqualToString:@"none"]){
-        NSLog(@"none");
+    NSString *owner = @"", *imageStr = @"";
+    int atk = 0, skill_cost = 0, mr = 0, ar = 0;
+    float hp = 1, mp = 1;
+    
+    if(![tile.owner isEqualToString:@"none"]){
+        owner = tile.owner;
+        skill_cost = 1;
+        atk = tile.unit.baseDamage;
+        mr = tile.unit.moveRange;
+        ar = tile.unit.attackRange;
+        imageStr = @"icon.png";
+        imageStr = [[tile.unit.type lowercaseString] stringByAppendingFormat:@"_%@", imageStr];
+        hp = tile.currentHP/tile.unit.baseHP;
+        mp = 0.5;
     }else{
-        NSLog(@"Owner: %@, HP: %d type: %@", tile.owner, tile.currentHP, tile.unit.type);
+        imageStr = @"blank.png";
     }
+    UIImage *unit_icon = [UIImage imageNamed:imageStr];
+    UIImageView *icon = (UIImageView *)[self.view viewWithTag: 100];
+    [icon setImage:unit_icon];
+    
+    
+    _curUnitOwner.text = owner;
+    _curUnitAtk.text = [NSString stringWithFormat:@"%d", atk];
+    _curUnitSkillCost.text = [NSString stringWithFormat:@"%d", skill_cost];
+    _curUnitMR.text = [NSString stringWithFormat:@"%d", mr];
+    _curUnitAR.text = [NSString stringWithFormat:@"%d", ar];
+    [_curUnitHp setProgress: hp];
+    [_curUnitMp setProgress: mp];
     
 }
 
