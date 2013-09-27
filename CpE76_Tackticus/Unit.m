@@ -10,12 +10,13 @@
 
 @implementation Unit
 
-- (id)initType:(NSString *)t hp:(int)bh bDamage:(int)bd sDamage:(int)sd moveRange:(int)mr atkRange:(int)ar skillRange:(int)sr
+- (id)initType:(NSString *)t hp:(int)bh mp:(int)bm bDamage:(int)bd sDamage:(int)sd moveRange:(int)mr atkRange:(int)ar skillRange:(int)sr
 {
     self = [super init];
     if (self) {
         self.type = t;
         self.baseHP = bh;
+        self.baseMP = bm;
         self.baseDamage = bd;
         self.skillDamage =sd;
         self.moveRange = mr;

@@ -12,11 +12,12 @@
 
 @property NSString *type;
 @property int baseHP;
+@property int baseMP;
 @property int baseDamage;
 @property int skillDamage;
 @property int moveRange;
 @property int attackRange;
 @property int skillRange;
 
-- (id)initType:(NSString *)t hp:(int)bh bDamage:(int)bd sDamage:(int)sd moveRange:(int)mr atkRange:(int)ar skillRange:(int)sr;
+- (id)initType:(NSString *)t hp:(int)bh mp:(int)bm bDamage:(int)bd sDamage:(int)sd moveRange:(int)mr atkRange:(int)ar skillRange:(int)sr;
 @end

@@ -11,13 +11,14 @@
 @implementation Tile
 // class methods defined here
 
-- (id)initWithOwner:(NSString *)owner AndUnit:(Unit *)unit AndCurrentHP:(int)hp
+- (id)initWithOwner:(NSString *)owner AndUnit:(Unit *)unit AndCurrentHP:(int)hp AndCurrentMP:(int)mp
 {
     self = [super init];
     if (self) {
         self.owner = owner;
         self.unit = unit;
         self.currentHP = hp;
+        self.currentMP = mp;
         self.status = @"idle";
     }
     return self;

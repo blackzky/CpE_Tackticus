@@ -38,11 +38,11 @@
     self.navigationItem.hidesBackButton = YES;
     
     /* INIT BASE STATS OF UNITS */
-    MAGE = [[Unit alloc] initType:@"MAGE" hp: 5 bDamage: 1 sDamage: -3 moveRange: 2 atkRange: 2 skillRange: 2];
-    KNIGHT = [[Unit alloc] initType:@"KNIGHT" hp: 10 bDamage: 2 sDamage: 3 moveRange: 1 atkRange: 2 skillRange: 2];
-    SCOUT = [[Unit alloc] initType:@"SCOUT" hp: 5 bDamage: 3 sDamage: 5 moveRange: 2 atkRange: 2 skillRange: 2];
+    MAGE = [[Unit alloc] initType:@"MAGE" hp: 5 mp: 3 bDamage: 1 sDamage: -3 moveRange: 2 atkRange: 2 skillRange: 2];
+    KNIGHT = [[Unit alloc] initType:@"KNIGHT" hp: 10 mp: 2 bDamage: 2 sDamage: 3 moveRange: 1 atkRange: 2 skillRange: 2];
+    SCOUT = [[Unit alloc] initType:@"SCOUT" hp: 5 mp: 1 bDamage: 3 sDamage: 5 moveRange: 2 atkRange: 2 skillRange: 2];
     
-    Tile  *emptyTile = [[Tile alloc] initWithOwner:@"none" AndUnit:nil AndCurrentHP:0];
+    Tile  *emptyTile = [[Tile alloc] initWithOwner:@"none" AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
     Board = [NSMutableArray arrayWithObjects: emptyTile, emptyTile, emptyTile,
              emptyTile, emptyTile, emptyTile, emptyTile,
              emptyTile, emptyTile, emptyTile, emptyTile,
@@ -50,9 +50,9 @@
     
     /*PLAYER ONE INIT */
     p1_name = @"Player One";
-    Tile  *p1_mage = [[Tile alloc] initWithOwner:p1_name AndUnit:MAGE AndCurrentHP:MAGE.baseHP];
-    Tile  *p1_knight = [[Tile alloc] initWithOwner:p1_name AndUnit:KNIGHT AndCurrentHP:KNIGHT.baseHP];
-    Tile  *p1_scout = [[Tile alloc] initWithOwner:p1_name AndUnit:SCOUT AndCurrentHP:SCOUT.baseHP];
+    Tile  *p1_mage = [[Tile alloc] initWithOwner:p1_name AndUnit:MAGE AndCurrentHP:MAGE.baseHP AndCurrentMP:MAGE.baseMP];
+    Tile  *p1_knight = [[Tile alloc] initWithOwner:p1_name AndUnit:KNIGHT AndCurrentHP:KNIGHT.baseHP AndCurrentMP:KNIGHT.baseMP];
+    Tile  *p1_scout = [[Tile alloc] initWithOwner:p1_name AndUnit:SCOUT AndCurrentHP:SCOUT.baseHP AndCurrentMP:SCOUT.baseMP];
     
     [Board replaceObjectAtIndex:0 withObject:p1_mage];
     [Board replaceObjectAtIndex:2 withObject:p1_knight];
@@ -63,9 +63,9 @@
     
     /*PLAYER ONE INIT */
     p2_name = @"Player Two";
-    Tile  *p2_mage = [[Tile alloc] initWithOwner:p2_name AndUnit:MAGE AndCurrentHP:MAGE.baseHP];
-    Tile  *p2_knight = [[Tile alloc] initWithOwner:p2_name AndUnit:KNIGHT AndCurrentHP:KNIGHT.baseHP];
-    Tile  *p2_scout = [[Tile alloc] initWithOwner:p2_name AndUnit:SCOUT AndCurrentHP:SCOUT.baseHP];
+    Tile  *p2_mage = [[Tile alloc] initWithOwner:p2_name AndUnit:MAGE AndCurrentHP:MAGE.baseHP AndCurrentMP:MAGE.baseMP];
+    Tile  *p2_knight = [[Tile alloc] initWithOwner:p2_name AndUnit:KNIGHT AndCurrentHP:KNIGHT.baseHP AndCurrentMP:KNIGHT.baseMP];
+    Tile  *p2_scout = [[Tile alloc] initWithOwner:p2_name AndUnit:SCOUT AndCurrentHP:SCOUT.baseHP AndCurrentMP:SCOUT.baseMP];
     
     [Board replaceObjectAtIndex:12 withObject:p2_mage];
     [Board replaceObjectAtIndex:14 withObject:p2_knight];
@@ -154,7 +154,7 @@
         imageStr = @"icon.png";
         imageStr = [[tile.unit.type lowercaseString] stringByAppendingFormat:@"_%@", imageStr];
         hp = tile.currentHP/tile.unit.baseHP;
-        mp = 0.5;
+        mp = tile.currentMP/tile.unit.baseMP;
     }else{
         imageStr = @"blank.png";
     }
