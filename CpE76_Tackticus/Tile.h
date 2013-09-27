@@ -14,6 +14,7 @@
 @property NSString *owner;
 @property Unit *unit;
 @property int currentHP;
+@property NSString *status; /* IDLE, SELECTED, HIGHTLIGHTED */
 
 - (id)initWithOwner:(NSString *)owner AndUnit:(Unit *)unit AndCurrentHP:(int)hp;
 @end

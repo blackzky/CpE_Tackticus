@@ -18,6 +18,7 @@
         self.owner = owner;
         self.unit = unit;
         self.currentHP = hp;
+        self.status = @"idle";
     }
     return self;
 }

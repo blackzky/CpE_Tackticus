@@ -15,6 +15,7 @@
 @implementation InGameViewController{
     NSMutableArray *Board;
     Unit *MAGE, *KNIGHT, *SCOUT;
+    Tile *selected;
     
     NSString *p1_name, *p2_name;
 }
@@ -57,9 +58,6 @@
     [Board replaceObjectAtIndex:2 withObject:p1_knight];
     [Board replaceObjectAtIndex:3 withObject:p1_scout];
     
-    [self updateBoard:0];
-    [self updateBoard:2];
-    [self updateBoard:3];
     /* END PLAYER ONE */
     
     
@@ -73,24 +71,17 @@
     [Board replaceObjectAtIndex:14 withObject:p2_knight];
     [Board replaceObjectAtIndex:15 withObject:p2_scout];
     
-    [self updateBoard:12];
-    [self updateBoard:14];
-    [self updateBoard:15];
+
+    
     /* END PLAYER ONE */
     
-    //load the position of each unit of a player here.. (change Board data)
     //updateBoard() - updates the buttons/board based on the Board array
+    [self updateBoard];
 }
-/*
- Note: The tag of the top left tile is 1
- */
--(void) updateBoard:(int)index{
-    //@TODO: based image from board (Loop the contents of the board)
-    int tile_tag = index + 1;
-    Tile *tile = [Board objectAtIndex:index];
+
+-(NSString *)getImageStr:(Tile *)tile{
     Unit *unit = tile.unit;
     NSString *imageStr = @"";
-    
     if([tile.owner isEqualToString:p1_name]){
         if([unit.type isEqualToString:@"MAGE"]){
             imageStr = @"black_mage.png";
@@ -112,10 +103,50 @@
             imageStr = @"grass.png";
         }
     }
+    if(![imageStr isEqualToString:@"grass.png" ] && ![tile.status isEqualToString:@"idle"])
+        imageStr = [[tile.status lowercaseString] stringByAppendingFormat:@"_%@", imageStr];
     
-    UIImage *unit_image = [UIImage imageNamed:imageStr];
-    UIButton *tile_ui = (UIButton *)[self.view viewWithTag: tile_tag];
-    [tile_ui setBackgroundImage:unit_image forState:UIControlStateNormal];
+    return imageStr;
+}
+/*
+ Note: The tag of the top left tile is 1
+ */
+-(void) updateBoard{
+    int tile_tag = 0;
+    Tile *tile;
+    NSString *imageStr;
+    UIImage *unit_image;
+    UIButton *tile_ui;
+    
+    int count = [Board count];
+    
+    for(int i = 0; i < count; i++){
+        tile = [Board objectAtIndex:i];
+        tile_tag = i + 1;
+        imageStr = [self getImageStr:tile];
+        
+        unit_image = [UIImage imageNamed:imageStr];
+        tile_ui = (UIButton *)[self.view viewWithTag: tile_tag];
+        [tile_ui setBackgroundImage:unit_image forState:UIControlStateNormal];
+    }
+}
+
+-(void)clearSelected{
+    Tile *tile;
+    int count = [Board count];
+    for(int i = 0; i < count; i++){
+        tile = [Board objectAtIndex:i];
+        tile.status = @"idle";
+    }
+}
+
+-(void)viewTile:(Tile *)tile{
+    if([tile.owner isEqualToString:@"none"]){
+        NSLog(@"none");
+    }else{
+        NSLog(@"Owner: %@, HP: %d type: %@", tile.owner, tile.currentHP, tile.unit.type);
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -125,10 +156,17 @@
 }
 
 - (IBAction)tile:(id)sender {
-    NSInteger tag = ([sender tag] - 1);
-    Tile *cur = ((Tile *)[Board objectAtIndex:tag]); //get current tile
+    NSInteger index = ([sender tag] - 1);
+    Tile *cur = ((Tile *)[Board objectAtIndex:index]); //get current tile
     
-    NSLog(@"tile: %i %@", tag, cur.owner);
+    [self clearSelected];
+    cur.status = @"selected";
+    selected = cur;
+    
+    [self viewTile:selected];
+    [self updateBoard];
+    
+    
 }
 
 - (IBAction)playerAction:(id)sender {

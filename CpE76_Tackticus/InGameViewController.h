@@ -16,6 +16,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *tileOutlet;
 
 
--(void) updateBoard:(int)index;
+-(void)clearSelected;
+-(void) updateBoard;
+-(NSString *)getImageStr:(Tile *)tile;
+-(void)viewTile:(Tile *)tile;
 
 @end
