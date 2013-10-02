@@ -11,7 +11,7 @@
 @implementation Tile
 // class methods defined here
 
-- (id)initWithOwner:(NSString *)owner AndUnit:(Unit *)unit AndCurrentHP:(int)hp AndCurrentMP:(int)mp
+- (id)initWithOwner:(int)owner AndUnit:(Unit *)unit AndCurrentHP:(int)hp AndCurrentMP:(int)mp
 {
     self = [super init];
     if (self) {

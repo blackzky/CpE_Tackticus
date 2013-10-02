@@ -34,6 +34,10 @@
 		C3B21EC717F2C27E0080FC92 /* white_archer.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21EAC17F2C27E0080FC92 /* white_archer.png */; };
 		C3B21EC817F2C27E0080FC92 /* white_knight.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21EAD17F2C27E0080FC92 /* white_knight.png */; };
 		C3B21EC917F2C27E0080FC92 /* white_mage.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21EAE17F2C27E0080FC92 /* white_mage.png */; };
+		C3BC9FFB17FBCBE700DC1E55 /* SetPlayer1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BC9FFA17FBCBE700DC1E55 /* SetPlayer1ViewController.m */; };
+		C3BCA00217FBCC6500DC1E55 /* SetPlayer2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BCA00117FBCC6500DC1E55 /* SetPlayer2ViewController.m */; };
+		C3BCA00A17FBDDA500DC1E55 /* highlighted2_grass.png in Resources */ = {isa = PBXBuildFile; fileRef = C3BCA00817FBDDA500DC1E55 /* highlighted2_grass.png */; };
+		C3BCA00B17FBDDA500DC1E55 /* highlighted1_grass.png in Resources */ = {isa = PBXBuildFile; fileRef = C3BCA00917FBDDA500DC1E55 /* highlighted1_grass.png */; };
 		C3CB927817E97D2700A8E255 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CB927717E97D2700A8E255 /* UIKit.framework */; };
 		C3CB927A17E97D2700A8E255 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CB927917E97D2700A8E255 /* Foundation.framework */; };
 		C3CB927C17E97D2700A8E255 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CB927B17E97D2700A8E255 /* CoreGraphics.framework */; };
@@ -80,6 +84,12 @@
 		C3B21EAC17F2C27E0080FC92 /* white_archer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_archer.png; sourceTree = "<group>"; };
 		C3B21EAD17F2C27E0080FC92 /* white_knight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_knight.png; sourceTree = "<group>"; };
 		C3B21EAE17F2C27E0080FC92 /* white_mage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_mage.png; sourceTree = "<group>"; };
+		C3BC9FF917FBCBE700DC1E55 /* SetPlayer1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetPlayer1ViewController.h; sourceTree = "<group>"; };
+		C3BC9FFA17FBCBE700DC1E55 /* SetPlayer1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetPlayer1ViewController.m; sourceTree = "<group>"; };
+		C3BCA00017FBCC6500DC1E55 /* SetPlayer2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetPlayer2ViewController.h; sourceTree = "<group>"; };
+		C3BCA00117FBCC6500DC1E55 /* SetPlayer2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetPlayer2ViewController.m; sourceTree = "<group>"; };
+		C3BCA00817FBDDA500DC1E55 /* highlighted2_grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highlighted2_grass.png; sourceTree = "<group>"; };
+		C3BCA00917FBDDA500DC1E55 /* highlighted1_grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highlighted1_grass.png; sourceTree = "<group>"; };
 		C3CB927317E97D2700A8E255 /* CpE76_Tackticus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CpE76_Tackticus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3CB927717E97D2700A8E255 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C3CB927917E97D2700A8E255 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -123,6 +133,8 @@
 		C3B21E9317F2C2620080FC92 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C3BCA00817FBDDA500DC1E55 /* highlighted2_grass.png */,
+				C3BCA00917FBDDA500DC1E55 /* highlighted1_grass.png */,
 				C3B21E9417F2C27E0080FC92 /* scout_icon.png */,
 				C3B21E9517F2C27E0080FC92 /* black_archer.png */,
 				C3B21E9617F2C27E0080FC92 /* black_knight.png */,
@@ -190,6 +202,10 @@
 				C3CB928617E97D2700A8E255 /* AppDelegate.h */,
 				C3CB928717E97D2700A8E255 /* AppDelegate.m */,
 				C3CB928F17E97D2700A8E255 /* MainStoryboard.storyboard */,
+				C3BC9FF917FBCBE700DC1E55 /* SetPlayer1ViewController.h */,
+				C3BC9FFA17FBCBE700DC1E55 /* SetPlayer1ViewController.m */,
+				C3BCA00017FBCC6500DC1E55 /* SetPlayer2ViewController.h */,
+				C3BCA00117FBCC6500DC1E55 /* SetPlayer2ViewController.m */,
 				C3CB929217E97D2700A8E255 /* ViewController.h */,
 				C3CB929317E97D2700A8E255 /* ViewController.m */,
 				C3CB927E17E97D2700A8E255 /* Supporting Files */,
@@ -302,6 +318,8 @@
 				C3B21EC717F2C27E0080FC92 /* white_archer.png in Resources */,
 				C3B21EC817F2C27E0080FC92 /* white_knight.png in Resources */,
 				C3B21EC917F2C27E0080FC92 /* white_mage.png in Resources */,
+				C3BCA00A17FBDDA500DC1E55 /* highlighted2_grass.png in Resources */,
+				C3BCA00B17FBDDA500DC1E55 /* highlighted1_grass.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +336,8 @@
 				C3F6EB5317ED34CD0085F7DF /* InGameViewController.m in Sources */,
 				C3F6EB5717ED3BCA0085F7DF /* Tile.m in Sources */,
 				C3F6EB5D17ED41F00085F7DF /* Unit.m in Sources */,
+				C3BC9FFB17FBCBE700DC1E55 /* SetPlayer1ViewController.m in Sources */,
+				C3BCA00217FBCC6500DC1E55 /* SetPlayer2ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

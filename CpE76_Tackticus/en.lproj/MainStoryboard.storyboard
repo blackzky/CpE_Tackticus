@@ -4,11 +4,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
-        <!--View Controller - SetPlayerOne-->
+        <!--Set Player1 View Controller - SetPlayerOne-->
         <scene sceneID="Pjk-w6-qUH">
             <objects>
-                <viewController title="SetPlayerOne" id="lI4-7R-Qbj" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="irT-SJ-a4k">
+                <viewController title="SetPlayerOne" id="lI4-7R-Qbj" customClass="SetPlayer1ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="irT-SJ-a4k" customClass="UIControl">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -138,15 +138,21 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="HideBKP:" destination="lI4-7R-Qbj" eventType="touchDown" id="Z5k-es-aJU"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Player One" id="J88-v4-J0N">
                         <barButtonItem key="backBarButtonItem" title="Back" id="48U-xR-tvV"/>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="mhK-oC-Qsu">
                             <connections>
-                                <segue destination="RLw-Fa-RVm" kind="push" id="eSS-1y-Zzw"/>
+                                <segue destination="RLw-Fa-RVm" kind="push" identifier="SetP1" id="eSS-1y-Zzw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="P1Name_tf" destination="383-IN-mCo" id="XUY-dq-Yk9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XmV-1h-1Mo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -468,8 +474,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="mana_cost.png" id="57M-3p-N7X">
                                 <rect key="frame" x="176" y="54" width="32" height="32"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mg9-TE-Zr2">
-                                <rect key="frame" x="32" y="54" width="86" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mg9-TE-Zr2">
+                                <rect key="frame" x="32" y="54" width="136" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -565,11 +571,11 @@
             </objects>
             <point key="canvasLocation" x="-268" y="-1140"/>
         </scene>
-        <!--View Controller - SetPlayerTwo-->
+        <!--Set Player2 View Controller - SetPlayerTwo-->
         <scene sceneID="xth-cL-cCf">
             <objects>
-                <viewController title="SetPlayerTwo" id="RLw-Fa-RVm" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fV5-Qv-bCs">
+                <viewController title="SetPlayerTwo" id="RLw-Fa-RVm" customClass="SetPlayer2ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fV5-Qv-bCs" customClass="UIControl">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -699,15 +705,21 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="HideBKP:" destination="RLw-Fa-RVm" eventType="touchDown" id="ey4-Pq-fyM"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Player Two" id="0bK-s9-kg8">
                         <barButtonItem key="backBarButtonItem" title="Back" id="6Fh-nG-lkk"/>
                         <barButtonItem key="rightBarButtonItem" title="Start" id="NPD-7E-WSq">
                             <connections>
-                                <segue destination="wxT-eh-dwA" kind="push" id="q6s-Au-NcC"/>
+                                <segue destination="wxT-eh-dwA" kind="push" identifier="SetP2" id="q6s-Au-NcC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="P2Name_tf" destination="UjD-uy-V7e" id="uk6-UQ-vSh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XbL-O1-Xys" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -741,6 +753,41 @@
         <image name="range.png" width="32" height="32"/>
         <image name="test_2.jpg" width="64" height="64"/>
     </resources>
+    <classes>
+        <class className="InGameViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InGameViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="playerAction:"/>
+                <relationship kind="action" name="tile:"/>
+                <relationship kind="outlet" name="curUnitAR" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="curUnitAtk" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="curUnitHp" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="curUnitMR" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="curUnitMp" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="curUnitOwner" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="curUnitSkillCost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="curUnitType" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="tileOutlet" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="SetPlayer1ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SetPlayer1ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="HideBKP:"/>
+                <relationship kind="outlet" name="P1Name_tf" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="SetPlayer2ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SetPlayer2ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="HideBKP:"/>
+                <relationship kind="outlet" name="P2Name_tf" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
