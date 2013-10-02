@@ -11,8 +11,13 @@
 @interface SetPlayer1ViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITextField *P1Name_tf;
+@property (strong, nonatomic) IBOutlet UITextView *UnitDescription_tv;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *UnitType_segOutlet;
+
 
 @property (strong, nonatomic) NSString *P1Name;
 
 - (IBAction)HideBKP:(id)sender;
+- (IBAction)UnitType_segAction:(id)sender;
+
 @end

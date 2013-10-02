@@ -28,11 +28,19 @@
 -(void)clearSelected;
 -(void) updateBoard;
 -(NSString *)getImageStr:(Tile *)tile;
--(void)viewTile:(Tile *)tile;
+-(void)viewTileInfo:(Tile *)tile;
 -(void)highlightAdjacent;
 -(NSString *)getOwner:(int)owner;
 
+-(void)moveCurTileTo:(Tile *)tile;
+-(void)attackTile:(Tile *)tile;
+-(void)useSkillOnTile:(Tile *)tile;
+-(void)selectTile:(Tile *)tile andIndex:(int)index;
 
+-(int)getRow:(int)index;
+-(int)getCol:(int)index;
+-(int)getIndexWithRow:(int)row andCol:(int)col;
+    
 @property (strong, nonatomic) NSString *P1Name;
 @property (strong, nonatomic) NSString *P2Name;
 

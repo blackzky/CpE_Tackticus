@@ -16,12 +16,17 @@
 @implementation InGameViewController
 {
     NSMutableArray *Board;
-    Unit *MAGE, *KNIGHT, *SCOUT;
-    int SELECTED;
-    NSString *ACTION;
-    int PLAYER;
-    
     NSString *p1_name, *p2_name;
+    NSString *ACTION;
+    Unit *MAGE, *KNIGHT, *SCOUT;
+    
+    int ROWS;
+    int COLS;
+    
+    int SELECTED_INDEX;
+    Tile *CUR_TILE;
+    
+    int PLAYER;
 }
 @synthesize P1Name;
 @synthesize P2Name;
@@ -43,9 +48,11 @@
 	
     self.navigationItem.hidesBackButton = YES;
     
-    
     p1_name = P1Name;
     p2_name = P2Name;
+    
+    ROWS = 4;
+    COLS =4;
     
     PLAYER = 1;//set player 1 as first;
     ACTION = @"Move";
@@ -85,9 +92,8 @@
     Tile  *p1_scout = [[Tile alloc] initWithOwner:1 AndUnit:SCOUT AndCurrentHP:SCOUT.baseHP AndCurrentMP:SCOUT.baseMP];
     
     [Board replaceObjectAtIndex:0 withObject:p1_mage];
-    [Board replaceObjectAtIndex:2 withObject:p1_knight];
+    [Board replaceObjectAtIndex:5 withObject:p1_knight];
     [Board replaceObjectAtIndex:3 withObject:p1_scout];
-    
     /* END PLAYER ONE */
     
     
@@ -100,15 +106,17 @@
     [Board replaceObjectAtIndex:12 withObject:p2_mage];
     [Board replaceObjectAtIndex:14 withObject:p2_knight];
     [Board replaceObjectAtIndex:15 withObject:p2_scout];
-    
 
-    
     /* END PLAYER ONE */
     
     //updateBoard() - updates the buttons/board based on the Board array
     [self updateBoard];
 }
 
+- (void)didReceiveMemoryWarning{
+    [super didReceiveMemoryWarning];
+}
+/* OK */
 -(NSString *)getImageStr:(Tile *)tile{
     Unit *unit = tile.unit;
     NSString *imageStr = @"";
@@ -138,15 +146,11 @@
     if(![imageStr isEqualToString:@"grass.png" ] && ![tile.status isEqualToString:@"idle"]){
         imageStr = [[tile.status lowercaseString] stringByAppendingFormat:@"_%@", imageStr];
     }else if([imageStr isEqualToString:@"grass.png" ]  && [tile.status isEqualToString:@"highlighted"]){
-        imageStr = [[tile.status lowercaseString] stringByAppendingFormat:@"%d_%@", PLAYER, imageStr];
+        imageStr = [[tile.status lowercaseString] stringByAppendingFormat:@"_%@", imageStr];
     }
-        
-    
     return imageStr;
 }
-/*
- Note: The tag of the top left tile is 1
- */
+/* Note: The tag of the top left tile is 1 */
 -(void) updateBoard{
     int tile_tag = 0;
     Tile *tile;
@@ -166,7 +170,6 @@
         [tile_ui setBackgroundImage:unit_image forState:UIControlStateNormal];
     }
 }
-
 -(void)clearSelected{
     Tile *tile;
     int count = [Board count];
@@ -185,7 +188,73 @@
     }
 }
 
--(void)viewTile:(Tile *)tile{
+
+/*
+ int row = index / ROWS;
+ int col = index % COLS;
+ */
+-(int)getRow:(int)index{
+    return (index / ROWS);
+}
+-(int)getCol:(int)index{
+    return (index % COLS);
+}
+-(int)getIndexWithRow:(int)row andCol:(int)col{
+    return ( (row * ROWS) + col );
+}
+
+-(void)highlightAdjacent{
+    Tile *grass = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
+    int index = SELECTED_INDEX;
+    int row = [self getRow:index];
+    int col = [self getCol:index];
+    
+    int top_i = [self getIndexWithRow:(row-1) andCol: col];
+    int right_i = [self getIndexWithRow:row andCol: (col+1)];
+    int down_i = [self getIndexWithRow:(row+1) andCol: col];
+    int left_i = [self getIndexWithRow:row andCol: (col-1)];
+    
+    Tile *top = (top_i >= 0) ? [Board objectAtIndex: top_i] :grass;
+    Tile *right = (right_i < 16) ? [Board objectAtIndex: right_i] :grass;
+    Tile *down = (down_i < 16)  ? [Board objectAtIndex: down_i] :grass;
+    Tile *left = (left_i >= 0)  ? [Board objectAtIndex: left_i] :grass;
+    
+    //NSLog(@"i: %d [%d, %d, %d, %d]", index, top_i, right_i, down_i, left_i);
+    
+    NSMutableArray *directions = [NSMutableArray arrayWithObjects: top, right, down, left, nil];
+    
+    Tile *tile;
+    for(int i = 0; i < 4; i++){
+        tile = [directions objectAtIndex:i];
+        if([ACTION isEqualToString:@"Move"]  && tile.unit == NULL){
+            tile.status = @"highlighted";
+                //highligth the grass only
+        }else if([ACTION isEqualToString:@"Attack"] && tile.unit != NULL){
+                //highlight the enemy only
+            tile.status = @"highlighted";
+        }else if([ACTION isEqualToString:@"Akill"] && tile.unit != NULL){
+                //highlight the enemy only
+            tile.status = @"highlighted";
+        }
+    }
+    
+}
+
+-(void)moveCurTileTo:(Tile *)tile{
+    NSLog(@"MOVE!");
+}
+
+-(void)attackTile:(Tile *)tile{
+    NSLog(@"ATTACK!");
+}
+
+-(void)useSkillOnTile:(Tile *)tile{
+    NSLog(@"SKILL!");
+}
+
+
+/* OK */
+-(void)viewTileInfo:(Tile *)tile{
     NSString *owner = @"", *imageStr = @"";
     int atk = 0, skill_cost = 0, mr = 0, ar = 0;
     float hp = 1, mp = 1;
@@ -207,7 +276,6 @@
     UIImageView *icon = (UIImageView *)[self.view viewWithTag: 100];
     [icon setImage:unit_icon];
     
-    
     _curUnitOwner.text = owner;
     _curUnitAtk.text = [NSString stringWithFormat:@"%d", atk];
     _curUnitSkillCost.text = [NSString stringWithFormat:@"%d", skill_cost];
@@ -215,83 +283,38 @@
     _curUnitAR.text = [NSString stringWithFormat:@"%d", ar];
     [_curUnitHp setProgress: hp];
     [_curUnitMp setProgress: mp];
-    
 }
-
--(void)highlightAdjacent{
-    int ROWS = 4; int COLS = 4;
-    int index = SELECTED;
+/* ok */
+-(void)selectTile:(Tile *)tile andIndex:(int)index{
+    CUR_TILE = tile;
+    SELECTED_INDEX = index;
+    [self viewTileInfo:tile];
     
-    Tile *tile;
-    //UIButton *tile_ui = (UIButton *)[self.view viewWithTag: (index + 1)];
-    
-    int range = 1;//tile.unit.moveRange;
-    int row = index / ROWS;
-    int col = index % COLS;
-    
-    int sr = row - range;
-    int sc = col - range;
-    
-    int er = row + range;
-    int ec = col + range;
-    
-    //NSLog(@"index: %d, c: %d, r: %d, s: %d, e: %d", index, col, row);
-    int i = 0;
-
-    for(int r = sr; r <= er; r++){
-        for(int c = sc; c <= ec; c++){
-            i = (r * ROWS) + c;
-            if(i >= 0 && i < 16){
-                if(i != index){
-                    tile = [Board objectAtIndex:i];
-                    
-                    if([ACTION isEqualToString:@"Move"]  && tile.unit == NULL){
-                        tile.status = @"highlighted";
-                        //highligth the grass only
-                    }else if([ACTION isEqualToString:@"Attack"] && tile.unit != NULL){
-                        //highlight the enemy only
-                        tile.status = @"highlighted";
-                    }else if([ACTION isEqualToString:@"Akill"] && tile.unit != NULL){
-                        //highlight the enemy only
-                        tile.status = @"highlighted";
-                    }
-                    
-                }
-            }
-        }
-    }
-    
-    
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)tile:(id)sender {
-    NSInteger index = ([sender tag] - 1);
-    Tile *cur = ((Tile *)[Board objectAtIndex:index]); //get current tile
-    
-    [self clearSelected];
-    cur.status = @"selected";
-    SELECTED = index;
-    
-    
-    [self viewTile:cur];
-    if(cur.unit != NULL){
+    if(CUR_TILE.unit != NULL){
         [self highlightAdjacent];
     }
-    
-    
-    [self updateBoard];
-    
-    
 }
-
-- (IBAction)playerAction:(id)sender {
+/* OK */
+- (IBAction)tile:(id)sender {
+    NSInteger index = ([sender tag] - 1);
+    Tile *tile = ((Tile *)[Board objectAtIndex:index]);
     
+    [self clearSelected];
+    if([tile.status isEqualToString:@"highlighted"]){
+        if([ACTION isEqualToString:@"Move"]){
+            [self moveCurTileTo: tile];
+        }else if([ACTION isEqualToString:@"Attack"]){
+            [self attackTile: tile];
+        }if([ACTION isEqualToString:@"Skill"]){
+            [self useSkillOnTile:tile];
+        }
+    }else{
+        [self selectTile:tile andIndex: index];
+    }
+    [self updateBoard];
+}
+/* OK */
+- (IBAction)playerAction:(id)sender {
     NSInteger index = [sender selectedSegmentIndex];
     ACTION = [sender titleForSegmentAtIndex:index];
 }

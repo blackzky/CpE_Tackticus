@@ -51,4 +51,19 @@
 - (IBAction)HideBKP:(id)sender {
     [_P2Name_tf resignFirstResponder];
 }
+
+- (IBAction)UnitType_segAction:(id)sender {
+    int seg = _UnitType_segOutlet.selectedSegmentIndex;
+    
+    if(seg==0){
+        _UnitDescription_tv.text=[NSString stringWithFormat:@"The Mage is a spellcaster that masters the dark arts, their power can either bring chaos or harmony."];
+    }
+    if(seg==1){
+        _UnitDescription_tv.text=[NSString stringWithFormat:@"The Knight practices the way of the sword and with its armour that grants them more vitality."];
+    }
+    if(seg==2){
+        _UnitDescription_tv.text=[NSString stringWithFormat:@"The Archer, with elvish eyes, grants them sight beyond sight and accuracy which tagets the enemies vital points."];
+    }
+
+}
 @end
