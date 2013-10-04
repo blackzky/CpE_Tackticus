@@ -66,28 +66,11 @@
     KNIGHT = [[Unit alloc] initType:@"KNIGHT" hp: 10 mp: 2 bDamage: 2 sDamage: 3 moveRange: 1 atkRange: 2 skillRange: 2];
     SCOUT = [[Unit alloc] initType:@"SCOUT" hp: 5 mp: 1 bDamage: 3 sDamage: 5 moveRange: 2 atkRange: 2 skillRange: 2];
     
-    Tile  *emptyTile1 = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
-    Tile  *emptyTile2 = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
-    Tile  *emptyTile3 = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
-    Tile  *emptyTile4 = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
-    Tile  *emptyTile5 = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
-    Tile  *emptyTile6 = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
-    Tile  *emptyTile7 = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
-    Tile  *emptyTile8 = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
-    Tile  *emptyTile9 = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
-    Tile  *emptyTile10 = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
-    Tile  *emptyTile11 = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
-    Tile  *emptyTile12 = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
-    Tile  *emptyTile13 = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
-    Tile  *emptyTile14 = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
-    Tile  *emptyTile15 = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
-    Tile  *emptyTile16 = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
-    
-    
-    Board = [NSMutableArray arrayWithObjects: emptyTile1, emptyTile2, emptyTile3,
-             emptyTile4, emptyTile5, emptyTile6, emptyTile7,
-             emptyTile8, emptyTile9, emptyTile10, emptyTile11,
-             emptyTile12, emptyTile13, emptyTile14, emptyTile15, emptyTile16, nil];
+    Board = [[NSMutableArray alloc] init];
+    for(int i = 0; i < 16; i++){
+        Tile  *emptyTile = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
+        [Board addObject:emptyTile];
+    }
     
     /*PLAYER ONE INIT */
     NSArray *p1_units = [P1Units componentsSeparatedByString:@" "];
