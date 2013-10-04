@@ -53,9 +53,6 @@
     p1_name = P1Name;
     p2_name = P2Name;
     
-    NSLog(P1Units);
-    NSLog(P2Units);
-    
     ROWS = 4;
     COLS =4;
     int random = (arc4random() % 100);
@@ -93,31 +90,54 @@
              emptyTile12, emptyTile13, emptyTile14, emptyTile15, emptyTile16, nil];
     
     /*PLAYER ONE INIT */
+    NSArray *p1_units = [P1Units componentsSeparatedByString:@" "];
+    NSString *p1_unit1 = [ [[p1_units objectAtIndex:0] componentsSeparatedByString:@"-"] objectAtIndex:0];
+    int p1_unit1_i = [ [[[p1_units objectAtIndex:0] componentsSeparatedByString:@"-"] objectAtIndex:1] integerValue];
+    NSString *p1_unit2 = [ [[p1_units objectAtIndex:1] componentsSeparatedByString:@"-"] objectAtIndex:0];
+    int p1_unit2_i = [ [[[p1_units objectAtIndex:1] componentsSeparatedByString:@"-"] objectAtIndex:1] integerValue];
     
-    Tile  *p1_mage = [[Tile alloc] initWithOwner:1 AndUnit:MAGE AndCurrentHP:MAGE.baseHP AndCurrentMP:MAGE.baseMP];
-    Tile  *p1_knight = [[Tile alloc] initWithOwner:1 AndUnit:KNIGHT AndCurrentHP:KNIGHT.baseHP AndCurrentMP:KNIGHT.baseMP];
-    Tile  *p1_scout = [[Tile alloc] initWithOwner:1 AndUnit:SCOUT AndCurrentHP:SCOUT.baseHP AndCurrentMP:SCOUT.baseMP];
+    Tile  *unit1_p1 = [self createUnit:[self getUnitUsingType:p1_unit1] withOwner:1];
+    Tile  *unit2_p1 = [self createUnit:[self getUnitUsingType:p1_unit2] withOwner:1];
     
-    [Board replaceObjectAtIndex:4 withObject:p1_mage];
-    [Board replaceObjectAtIndex:8 withObject:p1_knight];
-    [Board replaceObjectAtIndex:5 withObject:p1_scout];
+    [Board replaceObjectAtIndex:p1_unit1_i withObject:unit1_p1];
+    [Board replaceObjectAtIndex:p1_unit2_i withObject:unit2_p1];
     /* END PLAYER ONE */
     
     
-    /*PLAYER ONE INIT */
+    /*PLAYER TWO INIT */
+ 
+    NSArray *p2_units = [P2Units componentsSeparatedByString:@" "];
+    NSString *p2_unit1 = [ [[p2_units objectAtIndex:0] componentsSeparatedByString:@"-"] objectAtIndex:0];
+    int p2_unit1_i = [ [[[p2_units objectAtIndex:0] componentsSeparatedByString:@"-"] objectAtIndex:1] integerValue];
+    NSString *p2_unit2 = [ [[p2_units objectAtIndex:1] componentsSeparatedByString:@"-"] objectAtIndex:0];
+    int p2_unit2_i = [ [[[p2_units objectAtIndex:1] componentsSeparatedByString:@"-"] objectAtIndex:1] integerValue];
     
-    Tile  *p2_mage = [[Tile alloc] initWithOwner:2 AndUnit:MAGE AndCurrentHP:MAGE.baseHP AndCurrentMP:MAGE.baseMP];
-    Tile  *p2_knight = [[Tile alloc] initWithOwner:2 AndUnit:KNIGHT AndCurrentHP:KNIGHT.baseHP AndCurrentMP:KNIGHT.baseMP];
-    Tile  *p2_scout = [[Tile alloc] initWithOwner:2 AndUnit:SCOUT AndCurrentHP:SCOUT.baseHP AndCurrentMP:SCOUT.baseMP];
+    Tile  *unit1_p2 = [self createUnit:[self getUnitUsingType:p2_unit1] withOwner:2];
+    Tile  *unit2_p2 = [self createUnit:[self getUnitUsingType:p2_unit2] withOwner:2];
     
-    [Board replaceObjectAtIndex:12 withObject:p2_mage];
-    [Board replaceObjectAtIndex:14 withObject:p2_knight];
-    [Board replaceObjectAtIndex:15 withObject:p2_scout];
+    [Board replaceObjectAtIndex:p2_unit1_i withObject:unit1_p2];
+    [Board replaceObjectAtIndex:p2_unit2_i withObject:unit2_p2];
 
-    /* END PLAYER ONE */
+    /* END PLAYER TWO */
     
-    //updateBoard() - updates the buttons/board based on the Board array
     [self updateBoard];
+}
+
+-(Unit *)getUnitUsingType:(NSString *)type{
+    Unit *unit;
+    if([type isEqualToString:@"Mage"]){
+        unit = MAGE;
+    }else if([type isEqualToString:@"Knight"]){
+        unit = KNIGHT;
+    }else if([type isEqualToString:@"Scout"]){
+        unit = SCOUT;
+    }
+    return unit;
+}
+
+-(Tile *)createUnit:(Unit *)unit withOwner:(int)owner{
+    Tile *tile = [[Tile alloc] initWithOwner:owner AndUnit:unit AndCurrentHP:unit.baseHP AndCurrentMP:unit.baseMP];
+    return tile;
 }
 
 - (void)didReceiveMemoryWarning{

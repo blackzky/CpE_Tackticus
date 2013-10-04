@@ -91,7 +91,7 @@
             prev = tag;
         }
         else{
-            unit_with_index = [Unit stringByAppendingFormat:@"-%d ", tag];
+            unit_with_index = [Unit stringByAppendingFormat:@"-%d ", (tag-1)];
             count -= 1;
             P1Units = [unit_with_index stringByAppendingFormat:@"%@", P1Units];
             prev = tag;

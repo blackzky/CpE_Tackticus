@@ -25,6 +25,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *curUnitSkillCost;
 @property (strong, nonatomic) IBOutlet UILabel *cur_player;
 
+-(Tile *)createUnit:(Unit *)unit withOwner:(int)owner;
+-(Unit *)getUnitUsingType:(NSString *)type;
 
 -(void)clearSelected;
 -(void) updateBoard;
