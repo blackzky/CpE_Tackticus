@@ -54,8 +54,8 @@
     ROWS = 4;
     COLS =4;
     
-    PLAYER = 2;//set player 1 as first;
-    [self setNextPlayer]; //after this the player is p1
+    PLAYER = ((arc4random() % 1) + 1); //GENERATE RANDOM TURN (OPPOSITE PLAYER WILL BE CHOOSEN)
+    [self setNextPlayer];
     ACTION = @"Move";
     
     /* INIT BASE STATS OF UNITS */
