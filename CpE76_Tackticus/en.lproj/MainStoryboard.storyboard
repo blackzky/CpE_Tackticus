@@ -486,7 +486,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" progress="1" id="byf-5m-JC7">
-                                <rect key="frame" x="60" y="33" width="96" height="9"/>
+                                <rect key="frame" x="60" y="32" width="96" height="9"/>
                                 <color key="progressTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
                             <progressView opaque="NO" contentMode="scaleToFill" progress="1" id="f0z-dL-Fjj">

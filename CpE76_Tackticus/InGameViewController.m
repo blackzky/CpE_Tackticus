@@ -53,8 +53,9 @@
     
     ROWS = 4;
     COLS =4;
+    int random = (arc4random() % 100);
     
-    PLAYER = ((arc4random() % 1) + 1); //GENERATE RANDOM TURN (OPPOSITE PLAYER WILL BE CHOOSEN)
+    PLAYER = (random > 50) ? 1 : 2; //GENERATE RANDOM TURN (OPPOSITE PLAYER WILL BE CHOOSEN)
     [self setNextPlayer];
     ACTION = @"Move";
     
@@ -254,19 +255,17 @@
 }
 
 -(void)moveCurTileTo:(Tile *)tile withIndex:(int)index{
-    NSLog(@"MOVE!");
-    
     [Board replaceObjectAtIndex:SELECTED_INDEX withObject:tile];
     [Board replaceObjectAtIndex:index withObject:CUR_TILE];
     SELECTED_INDEX = index;
 }
 
 -(void)attackTile:(Tile *)tile{
-    NSLog(@"ATTACK!");
+    tile.currentHP = tile.currentHP - CUR_TILE.unit.baseDamage;
 }
 
 -(void)useSkillOnTile:(Tile *)tile{
-    NSLog(@"SKILL!");
+    tile.currentHP = tile.currentHP - CUR_TILE.unit.skillDamage;
 }
 
 
@@ -274,7 +273,7 @@
 -(void)viewTileInfo:(Tile *)tile{
     NSString *owner = @"", *imageStr = @"";
     int atk = 0, skill_cost = 0, mr = 0, ar = 0;
-    float hp = 1, mp = 1;
+    float hp = 1.0, mp = 1.0;
     
     if(tile.owner != 0){
         owner = [self getOwner:tile.owner];
@@ -286,6 +285,7 @@
         imageStr = [[tile.unit.type lowercaseString] stringByAppendingFormat:@"_%@", imageStr];
         hp = tile.currentHP/tile.unit.baseHP;
         mp = tile.currentMP/tile.unit.baseMP;
+        
     }else{
         imageStr = @"blank.png";
     }

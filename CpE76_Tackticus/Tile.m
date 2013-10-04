@@ -11,7 +11,7 @@
 @implementation Tile
 // class methods defined here
 
-- (id)initWithOwner:(int)owner AndUnit:(Unit *)unit AndCurrentHP:(int)hp AndCurrentMP:(int)mp
+- (id)initWithOwner:(int)owner AndUnit:(Unit *)unit AndCurrentHP:(float)hp AndCurrentMP:(float)mp
 {
     self = [super init];
     if (self) {
