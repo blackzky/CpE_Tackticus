@@ -189,7 +189,7 @@
     }
 }
 -(NSString *)getAlliedColor{
-    return PLAYER == 1 ? @"RED" : @"BLUE";
+    return PLAYER == 1 ? @"BLACK" : @"WHITE";
 }
 
 -(void)setNextPlayer{
@@ -197,6 +197,16 @@
     NSString *owner = [self getOwner:PLAYER];
     NSString *allies = [self getAlliedColor];
     _cur_player.text = [NSString stringWithFormat:@"Player: %@ [%@]", owner, allies];
+    
+    NSString *msg = [NSString stringWithFormat:@"%@'s turn\nThe color of your units is %@", owner, allies];
+    
+    UIAlertView *alertDialog;
+    alertDialog= [[UIAlertView alloc] initWithTitle:@"Current Player"
+                                           message:msg
+                                          delegate:nil
+                                 cancelButtonTitle:@"OK"
+                                 otherButtonTitles: nil];
+    [alertDialog show];
 }
 -(int)getRow:(int)index{
     return (index / ROWS);
