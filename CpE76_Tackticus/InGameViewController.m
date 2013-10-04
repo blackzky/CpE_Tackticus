@@ -92,9 +92,9 @@
     Tile  *p1_knight = [[Tile alloc] initWithOwner:1 AndUnit:KNIGHT AndCurrentHP:KNIGHT.baseHP AndCurrentMP:KNIGHT.baseMP];
     Tile  *p1_scout = [[Tile alloc] initWithOwner:1 AndUnit:SCOUT AndCurrentHP:SCOUT.baseHP AndCurrentMP:SCOUT.baseMP];
     
-    [Board replaceObjectAtIndex:0 withObject:p1_mage];
+    [Board replaceObjectAtIndex:4 withObject:p1_mage];
     [Board replaceObjectAtIndex:8 withObject:p1_knight];
-    [Board replaceObjectAtIndex:3 withObject:p1_scout];
+    [Board replaceObjectAtIndex:5 withObject:p1_scout];
     /* END PLAYER ONE */
     
     
@@ -188,12 +188,15 @@
         return @"none";
     }
 }
-
+-(NSString *)getAlliedColor{
+    return PLAYER == 1 ? @"RED" : @"BLUE";
+}
 
 -(void)setNextPlayer{
     PLAYER = (PLAYER == 1) ? 2 : 1;
     NSString *owner = [self getOwner:PLAYER];
-    _cur_player.text = [NSString stringWithFormat:@"Current Player: %@", owner];
+    NSString *allies = [self getAlliedColor];
+    _cur_player.text = [NSString stringWithFormat:@"Player: %@ [%@]", owner, allies];
 }
 -(int)getRow:(int)index{
     return (index / ROWS);
@@ -240,8 +243,12 @@
     }
 }
 
--(void)moveCurTileTo:(Tile *)tile{
+-(void)moveCurTileTo:(Tile *)tile withIndex:(int)index{
     NSLog(@"MOVE!");
+    
+    [Board replaceObjectAtIndex:SELECTED_INDEX withObject:tile];
+    [Board replaceObjectAtIndex:index withObject:CUR_TILE];
+    SELECTED_INDEX = index;
 }
 
 -(void)attackTile:(Tile *)tile{
@@ -301,15 +308,15 @@
     NSInteger index = ([sender tag] - 1);
     Tile *tile = ((Tile *)[Board objectAtIndex:index]);
     
-    
     if([tile.status isEqualToString:@"highlighted"]){
         if([ACTION isEqualToString:@"Move"]){
-            [self moveCurTileTo: tile];
+            [self moveCurTileTo: tile withIndex: index];
         }else if([ACTION isEqualToString:@"Attack"]){
             [self attackTile: tile];
         }if([ACTION isEqualToString:@"Skill"]){
             [self useSkillOnTile:tile];
         }
+        [self clearSelected];
         [self setNextPlayer];
     }else{
         [self selectTile:tile andIndex: index];
@@ -321,5 +328,11 @@
 - (IBAction)playerAction:(id)sender {
     NSInteger index = [sender selectedSegmentIndex];
     ACTION = [sender titleForSegmentAtIndex:index];
+    
+    if(CUR_TILE.unit != NULL){
+        [self clearSelected];
+        [self highlightAdjacent];
+        [self updateBoard];
+    }
 }
 @end

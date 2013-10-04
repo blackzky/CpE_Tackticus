@@ -32,8 +32,9 @@
 -(void)viewTileInfo:(Tile *)tile;
 -(void)highlightAdjacent;
 -(NSString *)getOwner:(int)owner;
+-(NSString *)getAlliedColor;
 
--(void)moveCurTileTo:(Tile *)tile;
+-(void)moveCurTileTo:(Tile *)tile withIndex:(int)index;
 -(void)attackTile:(Tile *)tile;
 -(void)useSkillOnTile:(Tile *)tile;
 -(void)selectTile:(Tile *)tile andIndex:(int)index;
