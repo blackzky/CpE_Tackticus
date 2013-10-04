@@ -46,5 +46,8 @@
     
 @property (strong, nonatomic) NSString *P1Name;
 @property (strong, nonatomic) NSString *P2Name;
+@property (strong, nonatomic) NSString *P1Units;
+@property (strong, nonatomic) NSString *P2Units;
+
 
 @end

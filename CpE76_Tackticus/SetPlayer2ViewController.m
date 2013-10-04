@@ -14,7 +14,13 @@
 @end
 
 @implementation SetPlayer2ViewController
+{
+    NSString *Unit, *P2Units;
+    int count, prev;
+}
 @synthesize P1Name;
+@synthesize P1Units;
+@synthesize P2Units;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,6 +36,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    P2Units=@"";
+    count = 2, prev=0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,6 +53,8 @@
         SetPlayer2ViewController *destViewController = segue.destinationViewController;
         destViewController.P2Name = _P2Name_tf.text;
         destViewController.P1Name = P1Name;
+        destViewController.P1Units = P1Units;
+        destViewController.P2Units = P2Units;
     }
 }
 
@@ -63,6 +73,45 @@
     }
     if(seg==2){
         _UnitDescription_tv.text=[NSString stringWithFormat:@"The Archer, with elvish eyes, grants them sight beyond sight and accuracy which tagets the enemies vital points."];
+    }
+
+}
+
+- (IBAction)AddUnit:(id)sender {
+    int tag = [sender tag];
+    int seg = _UnitType_segOutlet.selectedSegmentIndex;
+    
+    NSString *unit_with_index;
+    
+    if(seg==0){Unit = @"Mage";}
+    if(seg==1){Unit = @"Knight";}
+    if(seg==2){Unit = @"Scout";}
+    
+    if(count>0){
+        if(tag==prev){
+            UIAlertView *alertDialog;
+            alertDialog= [[UIAlertView alloc] initWithTitle:@"Cannot Add Unit" message:@"Another Unit is already on the platform" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alertDialog show];
+            prev = tag;
+        }
+        else{
+            unit_with_index = [Unit stringByAppendingFormat:@"-%d ", tag];
+            count -= 1;
+            P2Units = [unit_with_index stringByAppendingFormat:@"%@", P2Units];
+            prev = tag;
+            
+            NSString *imageStr = [NSString stringWithFormat:@"white_%@.png", [Unit lowercaseString]];
+            UIImage *unit_image = [UIImage imageNamed:imageStr];
+            UIButton *tile_ui = (UIButton *)[self.view viewWithTag: tag];
+            [tile_ui setBackgroundImage:unit_image forState:UIControlStateNormal];
+            
+        }
+    }
+    
+    else{
+        UIAlertView *alertDialog2;
+        alertDialog2= [[UIAlertView alloc] initWithTitle:@"Cannot Add More Units" message:@"You have reached the maximum number of units" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alertDialog2 show];
     }
 
 }

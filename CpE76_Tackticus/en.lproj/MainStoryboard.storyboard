@@ -33,6 +33,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AddUnit:" destination="lI4-7R-Qbj" eventType="touchUpInside" id="PEh-Lq-fNG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NRr-Op-fse">
                                 <rect key="frame" x="163" y="237" width="64" height="64"/>
@@ -44,6 +47,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AddUnit:" destination="lI4-7R-Qbj" eventType="touchUpInside" id="kqQ-fo-vvy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KLq-8m-PTx">
                                 <rect key="frame" x="227" y="237" width="64" height="64"/>
@@ -55,6 +61,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AddUnit:" destination="lI4-7R-Qbj" eventType="touchUpInside" id="8Iy-oG-htu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dXp-N9-xzs">
                                 <rect key="frame" x="35" y="237" width="64" height="64"/>
@@ -66,6 +75,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AddUnit:" destination="lI4-7R-Qbj" eventType="touchUpInside" id="zLO-qD-tUW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="msl-ru-5Lk">
                                 <rect key="frame" x="99" y="301" width="64" height="64"/>
@@ -77,8 +89,11 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AddUnit:" destination="lI4-7R-Qbj" eventType="touchUpInside" id="6Nv-va-s75"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NX8-Ym-vCw">
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NX8-Ym-vCw">
                                 <rect key="frame" x="163" y="301" width="64" height="64"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="grass.png">
@@ -88,8 +103,11 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AddUnit:" destination="lI4-7R-Qbj" eventType="touchUpInside" id="lnE-om-gdo"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RTq-GL-mp6">
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RTq-GL-mp6">
                                 <rect key="frame" x="227" y="301" width="64" height="64"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="grass.png">
@@ -99,6 +117,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AddUnit:" destination="lI4-7R-Qbj" eventType="touchUpInside" id="zlC-TS-vgK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yAc-pc-a0m">
                                 <rect key="frame" x="35" y="301" width="64" height="64"/>
@@ -110,6 +131,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AddUnit:" destination="lI4-7R-Qbj" eventType="touchUpInside" id="UFU-Vd-DAM"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Unit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GHR-oR-YdW">
                                 <rect key="frame" x="32" y="72" width="31" height="21"/>
@@ -603,7 +627,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OtB-2J-wPj">
+                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OtB-2J-wPj">
                                 <rect key="frame" x="96" y="237" width="64" height="64"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="grass.png">
@@ -613,8 +637,11 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AddUnit:" destination="RLw-Fa-RVm" eventType="touchUpInside" id="jSF-4F-Jc2"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eCU-JJ-8qe">
+                            <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eCU-JJ-8qe">
                                 <rect key="frame" x="160" y="237" width="64" height="64"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="grass.png">
@@ -624,8 +651,11 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AddUnit:" destination="RLw-Fa-RVm" eventType="touchUpInside" id="DB0-tu-cxs"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JdF-SZ-AnS">
+                            <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JdF-SZ-AnS">
                                 <rect key="frame" x="224" y="237" width="64" height="64"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="grass.png">
@@ -635,8 +665,11 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AddUnit:" destination="RLw-Fa-RVm" eventType="touchUpInside" id="ipL-q2-OsN"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aag-VJ-ebl">
+                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aag-VJ-ebl">
                                 <rect key="frame" x="32" y="237" width="64" height="64"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="grass.png">
@@ -646,8 +679,11 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AddUnit:" destination="RLw-Fa-RVm" eventType="touchUpInside" id="sZa-kX-fO4"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Hkb-AU-onb">
+                            <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Hkb-AU-onb">
                                 <rect key="frame" x="96" y="301" width="64" height="64"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="grass.png">
@@ -657,8 +693,11 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AddUnit:" destination="RLw-Fa-RVm" eventType="touchUpInside" id="vrJ-k5-Lig"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="g6L-31-VuP">
+                            <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="g6L-31-VuP">
                                 <rect key="frame" x="160" y="301" width="64" height="64"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="grass.png">
@@ -668,8 +707,11 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AddUnit:" destination="RLw-Fa-RVm" eventType="touchUpInside" id="V4q-5L-I4R"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fIB-pS-Wk4">
+                            <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fIB-pS-Wk4">
                                 <rect key="frame" x="224" y="301" width="64" height="64"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="grass.png">
@@ -679,8 +721,11 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AddUnit:" destination="RLw-Fa-RVm" eventType="touchUpInside" id="Wdz-Ht-4N1"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jaO-YD-KdL">
+                            <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jaO-YD-KdL">
                                 <rect key="frame" x="32" y="301" width="64" height="64"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="grass.png">
@@ -690,6 +735,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AddUnit:" destination="RLw-Fa-RVm" eventType="touchUpInside" id="Cth-mm-pjd"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Unit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R7h-6m-MmC">
                                 <rect key="frame" x="32" y="72" width="31" height="21"/>
@@ -770,6 +818,50 @@
         <image name="move.png" width="32" height="32"/>
         <image name="range.png" width="32" height="32"/>
     </resources>
+    <classes>
+        <class className="InGameViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InGameViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="playerAction:"/>
+                <relationship kind="action" name="tile:"/>
+                <relationship kind="outlet" name="curUnitAR" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="curUnitAtk" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="curUnitHp" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="curUnitMR" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="curUnitMp" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="curUnitOwner" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="curUnitSkillCost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="curUnitType" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="cur_player" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tileOutlet" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="SetPlayer1ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SetPlayer1ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="AddUnit:"/>
+                <relationship kind="action" name="HideBKP:"/>
+                <relationship kind="action" name="UnitType_segAction:"/>
+                <relationship kind="outlet" name="P1Name_tf" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="UnitDescription_tv" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="UnitType_segOutlet" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="SetPlayer2ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SetPlayer2ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="AddUnit:"/>
+                <relationship kind="action" name="HideBKP:"/>
+                <relationship kind="action" name="UnitType_segAction:"/>
+                <relationship kind="outlet" name="P2Name_tf" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="UnitDescription_tv" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="UnitType_segOutlet" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

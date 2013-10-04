@@ -30,6 +30,8 @@
 }
 @synthesize P1Name;
 @synthesize P2Name;
+@synthesize P1Units;
+@synthesize P2Units;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -50,6 +52,9 @@
     
     p1_name = P1Name;
     p2_name = P2Name;
+    
+    NSLog(P1Units);
+    NSLog(P2Units);
     
     ROWS = 4;
     COLS =4;
@@ -128,7 +133,7 @@
         }else if([unit.type isEqualToString:@"KNIGHT"]){
             imageStr = @"black_knight.png";
         }else if([unit.type isEqualToString:@"SCOUT"]){
-            imageStr = @"black_archer.png";
+            imageStr = @"black_scout.png";
         }else{
             imageStr = @"grass.png";
         }
@@ -138,7 +143,7 @@
         }else if([unit.type isEqualToString:@"KNIGHT"]){
             imageStr = @"white_knight.png";
         }else if([unit.type isEqualToString:@"SCOUT"]){
-            imageStr = @"white_archer.png";
+            imageStr = @"white_scout.png";
         }else{
             imageStr = @"grass.png";
         }
