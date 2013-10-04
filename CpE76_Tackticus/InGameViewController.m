@@ -54,7 +54,8 @@
     ROWS = 4;
     COLS =4;
     
-    PLAYER = 1;//set player 1 as first;
+    PLAYER = 2;//set player 1 as first;
+    [self setNextPlayer]; //after this the player is p1
     ACTION = @"Move";
     
     /* INIT BASE STATS OF UNITS */
@@ -92,7 +93,7 @@
     Tile  *p1_scout = [[Tile alloc] initWithOwner:1 AndUnit:SCOUT AndCurrentHP:SCOUT.baseHP AndCurrentMP:SCOUT.baseMP];
     
     [Board replaceObjectAtIndex:0 withObject:p1_mage];
-    [Board replaceObjectAtIndex:5 withObject:p1_knight];
+    [Board replaceObjectAtIndex:8 withObject:p1_knight];
     [Board replaceObjectAtIndex:3 withObject:p1_scout];
     /* END PLAYER ONE */
     
@@ -189,10 +190,11 @@
 }
 
 
-/*
- int row = index / ROWS;
- int col = index % COLS;
- */
+-(void)setNextPlayer{
+    PLAYER = (PLAYER == 1) ? 2 : 1;
+    NSString *owner = [self getOwner:PLAYER];
+    _cur_player.text = [NSString stringWithFormat:@"Current Player: %@", owner];
+}
 -(int)getRow:(int)index{
     return (index / ROWS);
 }
@@ -204,40 +206,38 @@
 }
 
 -(void)highlightAdjacent{
-    Tile *grass = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
-    int index = SELECTED_INDEX;
-    int row = [self getRow:index];
-    int col = [self getCol:index];
+    if(CUR_TILE.owner == PLAYER){
+        Tile *grass = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
+        int index = SELECTED_INDEX;
+        int row = [self getRow:index];
+        int col = [self getCol:index];
     
-    int top_i = [self getIndexWithRow:(row-1) andCol: col];
-    int right_i = [self getIndexWithRow:row andCol: (col+1)];
-    int down_i = [self getIndexWithRow:(row+1) andCol: col];
-    int left_i = [self getIndexWithRow:row andCol: (col-1)];
+        //SHOUD BASE BY RANGE
+        int top_i = [self getIndexWithRow:(row-1) andCol: col];
+        int right_i = [self getIndexWithRow:row andCol: (col+1)];
+        int down_i = [self getIndexWithRow:(row+1) andCol: col];
+        int left_i = [self getIndexWithRow:row andCol: (col-1)];
     
-    Tile *top = (top_i >= 0) ? [Board objectAtIndex: top_i] :grass;
-    Tile *right = (right_i < 16) ? [Board objectAtIndex: right_i] :grass;
-    Tile *down = (down_i < 16)  ? [Board objectAtIndex: down_i] :grass;
-    Tile *left = (left_i >= 0)  ? [Board objectAtIndex: left_i] :grass;
+        Tile *top = (top_i >= 0) ? [Board objectAtIndex: top_i] :grass;
+        Tile *right = (right_i < 16 && right_i%4 != 0) ? [Board objectAtIndex: right_i]:grass;
+        Tile *down = (down_i < 16)  ? [Board objectAtIndex: down_i] :grass;
+        Tile *left = (left_i >= 0 && left_i%4 != 3)  ? [Board objectAtIndex: left_i] :grass;
     
-    //NSLog(@"i: %d [%d, %d, %d, %d]", index, top_i, right_i, down_i, left_i);
     
-    NSMutableArray *directions = [NSMutableArray arrayWithObjects: top, right, down, left, nil];
+        NSMutableArray *directions = [NSMutableArray arrayWithObjects: top, right, down, left, nil];
     
-    Tile *tile;
-    for(int i = 0; i < 4; i++){
-        tile = [directions objectAtIndex:i];
-        if([ACTION isEqualToString:@"Move"]  && tile.unit == NULL){
-            tile.status = @"highlighted";
-                //highligth the grass only
-        }else if([ACTION isEqualToString:@"Attack"] && tile.unit != NULL){
-                //highlight the enemy only
-            tile.status = @"highlighted";
-        }else if([ACTION isEqualToString:@"Akill"] && tile.unit != NULL){
-                //highlight the enemy only
-            tile.status = @"highlighted";
+        Tile *tile;
+        for(int i = 0; i < 4; i++){
+            tile = [directions objectAtIndex:i];
+            if([ACTION isEqualToString:@"Move"]  && tile.unit == NULL){
+                tile.status = @"highlighted";
+            }else if([ACTION isEqualToString:@"Attack"] && tile.unit != NULL){
+                tile.status = @"highlighted";
+            }else if([ACTION isEqualToString:@"Skill"] && tile.unit != NULL){
+                tile.status = @"highlighted";
+            }
         }
     }
-    
 }
 
 -(void)moveCurTileTo:(Tile *)tile{
@@ -286,6 +286,8 @@
 }
 /* ok */
 -(void)selectTile:(Tile *)tile andIndex:(int)index{
+    [self clearSelected];
+    tile.status = @"selected";
     CUR_TILE = tile;
     SELECTED_INDEX = index;
     [self viewTileInfo:tile];
@@ -299,7 +301,7 @@
     NSInteger index = ([sender tag] - 1);
     Tile *tile = ((Tile *)[Board objectAtIndex:index]);
     
-    [self clearSelected];
+    
     if([tile.status isEqualToString:@"highlighted"]){
         if([ACTION isEqualToString:@"Move"]){
             [self moveCurTileTo: tile];
@@ -308,9 +310,11 @@
         }if([ACTION isEqualToString:@"Skill"]){
             [self useSkillOnTile:tile];
         }
+        [self setNextPlayer];
     }else{
         [self selectTile:tile andIndex: index];
     }
+    
     [self updateBoard];
 }
 /* OK */

@@ -23,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *curUnitMR;
 @property (strong, nonatomic) IBOutlet UILabel *curUnitAR;
 @property (strong, nonatomic) IBOutlet UILabel *curUnitSkillCost;
+@property (strong, nonatomic) IBOutlet UILabel *cur_player;
 
 
 -(void)clearSelected;
@@ -37,6 +38,7 @@
 -(void)useSkillOnTile:(Tile *)tile;
 -(void)selectTile:(Tile *)tile andIndex:(int)index;
 
+-(void)setNextPlayer;
 -(int)getRow:(int)index;
 -(int)getCol:(int)index;
 -(int)getIndexWithRow:(int)row andCol:(int)col;
