@@ -45,6 +45,8 @@
 -(int)getRow:(int)index;
 -(int)getCol:(int)index;
 -(int)getIndexWithRow:(int)row andCol:(int)col;
+
+-(NSMutableArray *)getAdjTilesbyRange:(int)range andIndex:(int)index;
     
 @property (strong, nonatomic) NSString *P1Name;
 @property (strong, nonatomic) NSString *P2Name;

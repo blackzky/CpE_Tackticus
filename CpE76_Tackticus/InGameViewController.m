@@ -63,7 +63,7 @@
     
     /* INIT BASE STATS OF UNITS */
     MAGE = [[Unit alloc] initType:@"MAGE" hp: 5 mp: 3 bDamage: 1 sDamage: -3 moveRange: 2 atkRange: 2 skillRange: 2];
-    KNIGHT = [[Unit alloc] initType:@"KNIGHT" hp: 10 mp: 2 bDamage: 2 sDamage: 3 moveRange: 1 atkRange: 2 skillRange: 2];
+    KNIGHT = [[Unit alloc] initType:@"KNIGHT" hp: 10 mp: 2 bDamage: 2 sDamage: 3 moveRange: 1 atkRange: 1 skillRange: 2];
     SCOUT = [[Unit alloc] initType:@"SCOUT" hp: 5 mp: 1 bDamage: 3 sDamage: 5 moveRange: 2 atkRange: 2 skillRange: 2];
     
     Board = [[NSMutableArray alloc] init];
@@ -227,14 +227,151 @@
     return ( (row * ROWS) + col );
 }
 
+-(NSMutableArray *)getAdjTilesbyRange:(int)range andIndex:(int)index{
+    NSMutableArray *adj_tiles = [[NSMutableArray alloc] init];
+    
+    /*
+    for(int i = 0; i < 16; i++){
+        Tile  *tile = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
+        [adj_tiles addObject:tile];
+    }
+     */
+    
+    /*
+    int col = [self getCol:index];
+    int row = [self getRow:index];
+    
+    NSString *str_index;
+    int temp, tile_index;
+    
+    //NORTH-WEST
+    int tr = ((row - range) >= 0) ? (row - range) : 0;
+    int tc = ((col - range) >= 0) ? (col - range) : 0;./
+    for(int r = tr; r < row; r++){
+        for(int c = tc; c < col; c++){
+            temp = row - r;
+            if(c > temp){
+                tile_index = [self getIndexWithRow:r andCol:c];
+                str_index = [NSString stringWithFormat:@"%d", tile_index];
+                [adj_tiles addObject: str_index];
+            }
+            
+        }
+    }
+    //NORTH
+    for(int r = tr; r < row; r++){
+        tile_index = [self getIndexWithRow:r andCol:col];
+        str_index = [NSString stringWithFormat:@"%d", tile_index];
+        [adj_tiles addObject: str_index];
+    }
+     
+     //NORTH-WEST
+     tr = ((row - range) >= 0) ? (row - range) : 0;
+     tc = ((col - range) >= 0) ? (col - range) : 0;./
+     for(int r = tr; r < row; r++){
+        for(int c = tc; c < col; c++){
+            temp = row - r;
+            if(c > temp){
+                tile_index = [self getIndexWithRow:r andCol:c];
+                str_index = [NSString stringWithFormat:@"%d", tile_index];
+                [adj_tiles addObject: str_index];
+            }
+     
+        }
+     }
+    
+    //SOUTH
+    tr = ((row + range) < ROWS) ? (row + range) : ROWS;
+    for(int r = (row + 1); r < tr; r++){
+        tile_index = [self getIndexWithRow:r andCol:col];
+        
+        NSLog(@"i: %d", tile_index);
+        str_index = [NSString stringWithFormat:@"%d", tile_index];
+        [adj_tiles addObject: str_index];
+        
+    }
+    
+    //WEST
+    tc = ((col - range) >= 0) ? (col - range) : 0;
+    for(int c = tc; c < col; c++){
+        tile_index = [self getIndexWithRow:row andCol:c];
+        str_index = [NSString stringWithFormat:@"%d", tile_index];
+        [adj_tiles addObject: str_index];
+    }
+    */
+    
+    //jade-serge
+    
+    int col = [self getCol:index];
+    int row = [self getRow:index];
+    int sc = (col - range) >= 0 ? (col - range) : 0;
+    int sr = (row - range) >= 0 ? (row - range) : 0;
+    int ec = (col + range) < COLS ? (col + range) : COLS;
+    int er = (row + range) < ROWS ? (row + range) : ROWS;
+    
+    NSString *str_index;
+    int temp, tile_index;
+    bool add1 = false, add2 = false;
+    
+    NSLog(@"[%d, %d] S[%d, %d] E[%d, %d]", col, row,sc, sr, ec, er);
+    for(int r = sr; r < ROWS; r++){
+        for(int c = sc; c < COLS; c++){
+            
+            if(c == col){
+                temp = abs(row - r);
+                NSLog(@"%d %d c= %d", c, r, temp);
+                if(temp <= range){
+                    add1 = true;
+                }
+            }else if(c != col){
+                temp = abs(row - r);
+                NSLog(@"%d %d c! %d", c, r, temp);
+                if(temp <= (range-1)){
+                    add1 = true;
+                }
+            }
+            
+            if(r == row){
+                temp = abs(col - c);
+                NSLog(@"%d %d r= %d", c, r, temp);
+                if(temp <= range){
+                    add2 = true;
+                }
+            }else if(r != row){
+                temp = abs(col - c);
+                NSLog(@"%d %d r! %d", c, r, temp);
+                if(temp <= (range-1)){
+                    add2 = true;
+                }
+            }
+            
+            
+
+            if(add1 && add2){
+                tile_index = [self getIndexWithRow:r andCol:c];
+                str_index = [NSString stringWithFormat:@"%d", tile_index];
+                [adj_tiles addObject: str_index];
+            }
+            add1=false;
+            add2=false;
+             
+        }
+    }
+
+    
+    return adj_tiles;
+    
+}
+
 -(void)highlightAdjacent{
     if(CUR_TILE.owner == PLAYER){
-        Tile *grass = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
-        int index = SELECTED_INDEX;
-        int row = [self getRow:index];
-        int col = [self getCol:index];
+        //Tile *grass = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
+        //int index = SELECTED_INDEX;
+        //int row = [self getRow:index];
+        //int col = [self getCol:index];
     
-        //SHOUD BASE BY RANGE
+        /*
+        //SHOULD BASE BY RANGE
         int top_i = [self getIndexWithRow:(row-1) andCol: col];
         int right_i = [self getIndexWithRow:row andCol: (col+1)];
         int down_i = [self getIndexWithRow:(row+1) andCol: col];
@@ -251,6 +388,33 @@
         Tile *tile;
         for(int i = 0; i < 4; i++){
             tile = [directions objectAtIndex:i];
+            if([ACTION isEqualToString:@"Move"]  && tile.unit == NULL){
+                tile.status = @"highlighted";
+            }else if([ACTION isEqualToString:@"Attack"] && tile.unit != NULL){
+                tile.status = @"highlighted";
+            }else if([ACTION isEqualToString:@"Skill"] && tile.unit != NULL){
+                tile.status = @"highlighted";
+            }
+        }
+        */
+        
+        NSMutableArray *tiles;
+        if([ACTION isEqualToString:@"Move"]){
+            tiles = [self getAdjTilesbyRange:CUR_TILE.unit.moveRange andIndex:SELECTED_INDEX];
+        }else if([ACTION isEqualToString:@"Attack"]){
+            tiles = [self getAdjTilesbyRange:CUR_TILE.unit.attackRange andIndex:SELECTED_INDEX];
+        }else if([ACTION isEqualToString:@"Skill"]){
+            tiles = [self getAdjTilesbyRange:CUR_TILE.unit.skillRange andIndex:SELECTED_INDEX];
+        }
+        
+        int tile_count = [tiles count], adj_index;
+        Tile *tile;
+        
+        NSLog(@"%@", tiles);
+        for(int i = 0; i < tile_count; i++){
+            adj_index = [[tiles objectAtIndex:i] integerValue];
+            tile = [Board objectAtIndex:adj_index];
+            
             if([ACTION isEqualToString:@"Move"]  && tile.unit == NULL){
                 tile.status = @"highlighted";
             }else if([ACTION isEqualToString:@"Attack"] && tile.unit != NULL){
