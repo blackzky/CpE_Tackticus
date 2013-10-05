@@ -313,8 +313,21 @@
 
 -(BOOL)gameOver{
     BOOL gameover = false;
-    
-    
+    int count = [Board count];
+    Tile *tile;
+    int p1_units_count = 0;
+    int p2_units_count = 0;
+    for(int i = 0; i < count; i++){
+        tile = [Board objectAtIndex:i];
+        if(tile.owner == 1){
+            p1_units_count++;
+        }else if(tile.owner == 2){
+            p2_units_count++;
+        }
+    }
+    if(p1_units_count == 0 || p2_units_count == 0){
+        gameover = true;
+    }
     
     return gameover;
 }
@@ -402,7 +415,6 @@
         [self clearSelected];
         
         if([self gameOver]){
-            
             UIAlertView *alertDialog;
             NSString *msg =[NSString stringWithFormat:@"%@ won the game!", [self getOwner:PLAYER]];
             alertDialog= [[UIAlertView alloc] initWithTitle:@"Game Over"
@@ -411,6 +423,8 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles: nil];
             [alertDialog show];
+            
+            //DO SOMETHING AFTER GAME OVER
         }else{
             [self setNextPlayer];
         }
