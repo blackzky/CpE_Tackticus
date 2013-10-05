@@ -27,6 +27,8 @@
     Tile *CUR_TILE;
     
     int PLAYER;
+    
+    BOOL AFTER_AN_ACTION;
 }
 @synthesize P1Name;
 @synthesize P2Name;
@@ -49,6 +51,8 @@
     [super viewDidLoad];
 	
     self.navigationItem.hidesBackButton = YES;
+    
+    AFTER_AN_ACTION = false;
     
     p1_name = P1Name;
     p2_name = P2Name;
@@ -207,7 +211,8 @@
     NSString *allies = [self getAlliedColor];
     _cur_player.text = [NSString stringWithFormat:@"Player: %@ [%@]", owner, allies];
     
-    NSString *msg = [NSString stringWithFormat:@"%@'s turn\nThe color of your units is %@", owner, allies];
+    NSString *msg =[NSString stringWithFormat:@"%@'s turn\nThe color of your units is %@", owner, allies];
+    [_playerAction setSelectedSegmentIndex:0];
     
     UIAlertView *alertDialog;
     alertDialog= [[UIAlertView alloc] initWithTitle:@"Current Player"
@@ -234,14 +239,13 @@
     int row = [self getRow:index];
     int sc = (col - range) >= 0 ? (col - range) : 0;
     int sr = (row - range) >= 0 ? (row - range) : 0;
-    int ec = (col + range) < COLS ? (col + range) : COLS;
-    int er = (row + range) < ROWS ? (row + range) : ROWS;
+    //int ec = (col + range) < COLS ? (col + range) : COLS;
+    //int er = (row + range) < ROWS ? (row + range) : ROWS;
     
     NSString *str_index;
     int temp, tile_index;
     bool add1 = false, add2 = false;
     
-    NSLog(@"[%d, %d] S[%d, %d] E[%d, %d]", col, row,sc, sr, ec, er);
     for(int r = sr; r < ROWS; r++){
         for(int c = sc; c < COLS; c++){
             if(c == col){
@@ -311,6 +315,14 @@
             }
         }
     }
+}
+
+-(BOOL)gameOver{
+    BOOL gameover = false;
+    
+    
+    
+    return gameover;
 }
 
 -(void)moveCurTileTo:(Tile *)tile withIndex:(int)index{
@@ -386,9 +398,24 @@
             [self useSkillOnTile:tile];
         }
         [self clearSelected];
-        [self setNextPlayer];
+        
+        if([self gameOver]){
+            
+            UIAlertView *alertDialog;
+            NSString *msg =[NSString stringWithFormat:@"%@ won the game!", [self getOwner:PLAYER]];
+            alertDialog= [[UIAlertView alloc] initWithTitle:@"Game Over"
+                                                    message:msg
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles: nil];
+            [alertDialog show];
+        }else{
+            [self setNextPlayer];
+        }
+        AFTER_AN_ACTION = true;
     }else{
         [self selectTile:tile andIndex: index];
+        AFTER_AN_ACTION = false;
     }
     
     [self updateBoard];
@@ -401,6 +428,7 @@
     if(CUR_TILE.unit != NULL){
         [self clearSelected];
         [self highlightAdjacent];
+        if(!AFTER_AN_ACTION) CUR_TILE.status = @"selected";
         [self updateBoard];
     }
 }

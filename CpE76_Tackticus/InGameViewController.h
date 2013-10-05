@@ -14,6 +14,7 @@
 - (IBAction)tile:(id)sender;
 - (IBAction)playerAction:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *tileOutlet;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *playerAction;
 
 @property (strong, nonatomic) IBOutlet UILabel *curUnitOwner;
 @property (strong, nonatomic) IBOutlet UIImageView *curUnitType;
@@ -47,6 +48,7 @@
 -(int)getIndexWithRow:(int)row andCol:(int)col;
 
 -(NSMutableArray *)getAdjTilesbyRange:(int)range andIndex:(int)index;
+-(BOOL)gameOver;
     
 @property (strong, nonatomic) NSString *P1Name;
 @property (strong, nonatomic) NSString *P2Name;

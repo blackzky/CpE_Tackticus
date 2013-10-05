@@ -584,6 +584,7 @@
                         <outlet property="curUnitSkillCost" destination="kx6-UT-3ec" id="N8W-t7-RwK"/>
                         <outlet property="curUnitType" destination="vTp-49-hJH" id="iD9-P7-yqc"/>
                         <outlet property="cur_player" destination="h4j-qP-S0s" id="Oc5-3w-UtN"/>
+                        <outlet property="playerAction" destination="v7v-ew-pWe" id="tjZ-ci-bj2"/>
                         <outlet property="tileOutlet" destination="BJF-Sj-IdE" id="Q1c-2c-w9W"/>
                     </connections>
                 </viewController>
