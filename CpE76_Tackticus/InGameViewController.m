@@ -213,6 +213,7 @@
     
     NSString *msg =[NSString stringWithFormat:@"%@'s turn\nThe color of your units is %@", owner, allies];
     [_playerAction setSelectedSegmentIndex:0];
+    ACTION = @"Move";
     
     UIAlertView *alertDialog;
     alertDialog= [[UIAlertView alloc] initWithTitle:@"Current Player"
@@ -250,40 +251,32 @@
         for(int c = sc; c < COLS; c++){
             if(c == col){
                 temp = abs(row - r);
-                if(temp <= range){
-                    add1 = true;
-                }
+                if(temp <= range){      add1 = true;}
             }else if(c != col){
                 temp = abs(row - r);
-                if(temp <= (range-1)){
-                    add1 = true;
-                }
+                if(temp <= (range-1)){  add1 = true;}
             }
             
             if(r == row){
                 temp = abs(col - c);
-                if(temp <= range){
-                    add2 = true;
-                }
+                if(temp <= range){      add2 = true;}
             }else if(r != row){
                 temp = abs(col - c);
-                if(temp <= (range-1)){
-                    add2 = true;
-                }
+                if(temp <= (range-1)){  add2 = true;}
             }
 
             if(add1 && add2){
                 tile_index = [self getIndexWithRow:r andCol:c];
-                str_index = [NSString stringWithFormat:@"%d", tile_index];
-                [adj_tiles addObject: str_index];
+                if(tile_index != index){
+                    str_index = [NSString stringWithFormat:@"%d", tile_index];
+                    [adj_tiles addObject: str_index];
+                }
             }
             add1=false;
             add2=false;
-             
         }
     }
 
-    
     return adj_tiles;
     
 }
@@ -333,6 +326,9 @@
 
 -(void)attackTile:(Tile *)tile{
     tile.currentHP = tile.currentHP - CUR_TILE.unit.baseDamage;
+    if(tile.currentHP <= 0){
+        tile = NULL;
+    }
 }
 
 -(void)useSkillOnTile:(Tile *)tile{
