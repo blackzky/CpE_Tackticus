@@ -38,7 +38,7 @@
 -(NSString *)getAlliedColor;
 
 -(void)moveCurTileTo:(Tile *)tile withIndex:(int)index;
--(void)attackTile:(Tile *)tile;
+-(void)attackTile:(Tile *)tile inIndex:(int)index;
 -(void)useSkillOnTile:(Tile *)tile;
 -(void)selectTile:(Tile *)tile andIndex:(int)index;
 

@@ -233,6 +233,7 @@
     return ( (row * ROWS) + col );
 }
 
+/* OK */
 -(NSMutableArray *)getAdjTilesbyRange:(int)range andIndex:(int)index{
     NSMutableArray *adj_tiles = [[NSMutableArray alloc] init];
     
@@ -324,10 +325,11 @@
     SELECTED_INDEX = index;
 }
 
--(void)attackTile:(Tile *)tile{
+-(void)attackTile:(Tile *)tile inIndex:(int)index{
     tile.currentHP = tile.currentHP - CUR_TILE.unit.baseDamage;
     if(tile.currentHP <= 0){
-        tile = NULL;
+        Tile  *emptyTile = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
+        [Board replaceObjectAtIndex:index withObject:emptyTile];
     }
 }
 
@@ -376,7 +378,10 @@
     SELECTED_INDEX = index;
     [self viewTileInfo:tile];
     
-    if(CUR_TILE.unit != NULL){
+    if(CUR_TILE.unit == NULL){
+        [_playerAction setSelectedSegmentIndex:0];
+        ACTION = @"Move";
+    }else{
         [self highlightAdjacent];
     }
 }
@@ -389,7 +394,8 @@
         if([ACTION isEqualToString:@"Move"]){
             [self moveCurTileTo: tile withIndex: index];
         }else if([ACTION isEqualToString:@"Attack"]){
-            [self attackTile: tile];
+            [self attackTile: tile inIndex:index];
+            tile = NULL;
         }if([ACTION isEqualToString:@"Skill"]){
             [self useSkillOnTile:tile];
         }
