@@ -425,6 +425,9 @@
             [alertDialog show];
             
             //DO SOMETHING AFTER GAME OVER
+            
+            //UIViewController *menu = [self.storyboard instantiateViewControllerWithIdentifier:@"menu"];
+            //[self presentViewController:menu animated:YES completion:NULL];
         }else{
             [self setNextPlayer];
         }
