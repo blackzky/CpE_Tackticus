@@ -603,6 +603,12 @@
                     <view key="view" contentMode="scaleToFill" id="cEU-AO-U5c">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="credits.png" id="vx8-gb-ngw">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Credits" id="v0n-M4-rgh">
@@ -821,6 +827,7 @@
         <image name="LOGO.png" width="213" height="170"/>
         <image name="PLAYBUTTON.png" width="565" height="82"/>
         <image name="blank.png" width="97" height="109"/>
+        <image name="credits.png" width="640" height="960"/>
         <image name="damage.png" width="32" height="32"/>
         <image name="grass.png" width="64" height="64"/>
         <image name="mana_cost.png" width="32" height="32"/>
