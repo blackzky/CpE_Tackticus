@@ -18,6 +18,7 @@
 @property int moveRange;
 @property int attackRange;
 @property int skillRange;
+@property int skillCost;
 
-- (id)initType:(NSString *)t hp:(float)bh mp:(float)bm bDamage:(int)bd sDamage:(int)sd moveRange:(int)mr atkRange:(int)ar skillRange:(int)sr;
+- (id)initType:(NSString *)t hp:(float)bh mp:(float)bm bDamage:(int)bd sDamage:(int)sd moveRange:(int)mr atkRange:(int)ar skillRange:(int)sr skillCost:(int)sc;
 @end

@@ -66,9 +66,9 @@
     ACTION = @"Move";
     
     /* INIT BASE STATS OF UNITS */
-    MAGE = [[Unit alloc] initType:@"MAGE" hp: 5 mp: 3 bDamage: 1 sDamage: -3 moveRange: 2 atkRange: 2 skillRange: 2];
-    KNIGHT = [[Unit alloc] initType:@"KNIGHT" hp: 10 mp: 2 bDamage: 2 sDamage: 3 moveRange: 1 atkRange: 1 skillRange: 2];
-    SCOUT = [[Unit alloc] initType:@"SCOUT" hp: 5 mp: 1 bDamage: 3 sDamage: 5 moveRange: 2 atkRange: 2 skillRange: 2];
+    MAGE = [[Unit alloc] initType:@"MAGE" hp: 5 mp: 10 bDamage: 1 sDamage: -3 moveRange: 2 atkRange: 2 skillRange: 2 skillCost:2];
+    KNIGHT = [[Unit alloc] initType:@"KNIGHT" hp: 10 mp: 5 bDamage: 2 sDamage: 4 moveRange: 1 atkRange: 1 skillRange: 2 skillCost:1];
+    SCOUT = [[Unit alloc] initType:@"SCOUT" hp: 5 mp: 5 bDamage: 3 sDamage: 3 moveRange: 2 atkRange: 2 skillRange: 2 skillCost:1];
     
     Board = [[NSMutableArray alloc] init];
     for(int i = 0; i < 16; i++){
@@ -345,7 +345,17 @@
 }
 
 -(void)useSkillOnTile:(Tile *)tile{
-    tile.currentHP = tile.currentHP - CUR_TILE.unit.skillDamage;
+    if([CUR_TILE.unit.type isEqualToString:@"MAGE"]){
+        tile.currentHP = tile.currentHP - CUR_TILE.unit.skillDamage; //heal
+        CUR_TILE.currentMP -= CUR_TILE.unit.skillCost;
+    }else if([CUR_TILE.unit.type isEqualToString:@"KNIGHT"]){
+        tile.currentHP = tile.currentHP - CUR_TILE.unit.skillDamage; //time two damage
+        CUR_TILE.currentMP -= CUR_TILE.unit.skillCost;
+    }else if([CUR_TILE.unit.type isEqualToString:@"SCOUT"]){
+        tile.currentMP = tile.currentMP - CUR_TILE.unit.skillDamage; //damage mana of target
+        CUR_TILE.currentMP -= CUR_TILE.unit.skillCost;
+    }
+    
 }
 
 
