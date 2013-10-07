@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Tile.h"
 #import "Unit.h"
+#import "ViewController.h"
 
 @interface InGameViewController : UIViewController
 - (IBAction)tile:(id)sender;
@@ -39,7 +40,7 @@
 
 -(void)moveCurTileTo:(Tile *)tile withIndex:(int)index;
 -(void)attackTile:(Tile *)tile inIndex:(int)index;
--(void)useSkillOnTile:(Tile *)tile;
+-(void)useSkillOnTile:(Tile *)tile inIndex:(int)index;
 -(void)selectTile:(Tile *)tile andIndex:(int)index;
 
 -(void)setNextPlayer;

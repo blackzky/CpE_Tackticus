@@ -344,16 +344,28 @@
     }
 }
 
--(void)useSkillOnTile:(Tile *)tile{
-    if([CUR_TILE.unit.type isEqualToString:@"MAGE"]){
-        tile.currentHP = tile.currentHP - CUR_TILE.unit.skillDamage; //heal
-        CUR_TILE.currentMP -= CUR_TILE.unit.skillCost;
-    }else if([CUR_TILE.unit.type isEqualToString:@"KNIGHT"]){
-        tile.currentHP = tile.currentHP - CUR_TILE.unit.skillDamage; //time two damage
-        CUR_TILE.currentMP -= CUR_TILE.unit.skillCost;
-    }else if([CUR_TILE.unit.type isEqualToString:@"SCOUT"]){
-        tile.currentMP = tile.currentMP - CUR_TILE.unit.skillDamage; //damage mana of target
-        CUR_TILE.currentMP -= CUR_TILE.unit.skillCost;
+-(void)useSkillOnTile:(Tile *)tile inIndex:(int)index{
+    if(CUR_TILE.currentMP - CUR_TILE.unit.skillCost >= 0){
+        if([CUR_TILE.unit.type isEqualToString:@"MAGE"]){
+            if(tile.currentHP - CUR_TILE.unit.skillDamage > tile.unit.baseHP){
+                tile.currentHP = CUR_TILE.unit.baseHP;
+            }else{
+                tile.currentHP = tile.currentHP - CUR_TILE.unit.skillDamage; //heal
+            }
+            CUR_TILE.currentMP -= CUR_TILE.unit.skillCost;
+        }else if([CUR_TILE.unit.type isEqualToString:@"KNIGHT"]){
+            tile.currentHP = tile.currentHP - CUR_TILE.unit.skillDamage; //time two damage
+            CUR_TILE.currentMP -= CUR_TILE.unit.skillCost;
+        }else if([CUR_TILE.unit.type isEqualToString:@"SCOUT"]){
+            tile.currentMP = tile.currentMP - CUR_TILE.unit.skillDamage; //damage mana of target
+            CUR_TILE.currentMP -= CUR_TILE.unit.skillCost;
+        }
+    }
+    
+    
+    if(tile.currentHP <= 0){
+        Tile  *emptyTile = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
+        [Board replaceObjectAtIndex:index withObject:emptyTile];
     }
     
 }
@@ -418,7 +430,7 @@
             [self attackTile: tile inIndex:index];
             tile = NULL;
         }if([ACTION isEqualToString:@"Skill"]){
-            [self useSkillOnTile:tile];
+            [self useSkillOnTile:tile inIndex:index];
         }
         [self clearSelected];
         
@@ -434,10 +446,11 @@
             
             //DO SOMETHING AFTER GAME OVER
             
-            //UIViewController *menu = [self.storyboard instantiateViewControllerWithIdentifier:@"menu"];
-            //[self presentViewController:menu animated:YES completion:NULL];
-            //UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-//MyNewViewController *myVC = (MyNewViewController *)[storyboard instantiateViewControllerWithIdentifier:@"myViewCont"];
+            /*
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    ViewController *vc = (ViewController *)[storyboard instantiateViewControllerWithIdentifier:@"menu"];
+            */
+             
         }else{
             [self setNextPlayer];
         }
@@ -454,7 +467,21 @@
     NSInteger index = [sender selectedSegmentIndex];
     ACTION = [sender titleForSegmentAtIndex:index];
     
+    
     if(CUR_TILE.unit != NULL){
+        if([ACTION isEqualToString:@"Skill"]){
+            if(CUR_TILE.currentMP - CUR_TILE.unit.skillCost < 0){
+                [_playerAction setSelectedSegmentIndex:0];
+                ACTION = @"Move";
+                UIAlertView *alertDialog;
+                alertDialog= [[UIAlertView alloc] initWithTitle:@"Not Enough Mana"
+                                                        message:@"Not enough mana to use skill"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+                [alertDialog show];
+            }
+        }
         [self clearSelected];
         [self highlightAdjacent];
         if(!AFTER_AN_ACTION) CUR_TILE.status = @"selected";
