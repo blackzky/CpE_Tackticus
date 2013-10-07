@@ -223,11 +223,9 @@
                                  otherButtonTitles: nil];
     [alertDialog show];
 }
--(int)getRow:(int)index{
-    return (index / ROWS);
+-(int)getRow:(int)index{   return (index / ROWS);
 }
--(int)getCol:(int)index{
-    return (index % COLS);
+-(int)getCol:(int)index{   return (index % COLS);
 }
 -(int)getIndexWithRow:(int)row andCol:(int)col{
     return ( (row * ROWS) + col );

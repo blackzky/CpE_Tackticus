@@ -1,12 +1,18 @@
 GUIDES AND TODO
 
-TODO:
--create a function that will update the Board based from the Board Array.
--create a function that will process the placement of each unit of a player, limit the number of units a player can add. Allow players to delete a unit that wasplaced already on the board.
--Create a function/process for the combat system.
--Create a function/process for the unit movement system.
+TODOS:
+-create a process that will move the scene/view to menu after the is over.
+-add skill handler for each unit. (limit/trap heal)
+-show an action sheet or confirm box if menu is pressed(from ingame controller)
+-trap or dont allow a user/player to move to the next scene/view if he hasent placed all his units. (incomplete units will cause an error)
+-refactor code
 
--create a process that will pass the data from one scene to the other (SetPlayerOne -> SetPlayerTwo -> InGame)
+[DONE]-create a function that will update the Board based from the Board Array.
+[DONE]-create a function that will process the placement of each unit of a player, limit the number of units a player can add.
+[DONE]-Create a function/process for the combat system.
+[DONE]-Create a function/process for the unit movement system.
+
+[DONE]-create a process that will pass the data from one scene to the other (SetPlayerOne -> SetPlayerTwo -> InGame)
 
 Obejective C Construtor Tutorial:
 http://pixeleap.com/?p=280
