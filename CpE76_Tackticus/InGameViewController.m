@@ -436,6 +436,8 @@
             
             //UIViewController *menu = [self.storyboard instantiateViewControllerWithIdentifier:@"menu"];
             //[self presentViewController:menu animated:YES completion:NULL];
+            //UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+//MyNewViewController *myVC = (MyNewViewController *)[storyboard instantiateViewControllerWithIdentifier:@"myViewCont"];
         }else{
             [self setNextPlayer];
         }

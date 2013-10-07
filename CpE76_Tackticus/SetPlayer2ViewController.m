@@ -38,6 +38,10 @@
 	// Do any additional setup after loading the view.
     P2Units=@"";
     count = 2, prev=0;
+    
+    /* This code disables the next button if the count if his units is greater than 0 */
+    UIBarButtonItem *button = self.navigationItem.rightBarButtonItem;
+    button.enabled = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,6 +108,11 @@
             UIImage *unit_image = [UIImage imageNamed:imageStr];
             UIButton *tile_ui = (UIButton *)[self.view viewWithTag: tag];
             [tile_ui setBackgroundImage:unit_image forState:UIControlStateNormal];
+            
+            if(count < 1){
+                UIBarButtonItem *button = self.navigationItem.rightBarButtonItem;
+                button.enabled = YES;
+            }
             
         }
     }
