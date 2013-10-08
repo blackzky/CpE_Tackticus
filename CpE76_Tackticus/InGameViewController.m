@@ -538,7 +538,7 @@
     NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
     if ([buttonTitle isEqualToString:@"OK"] || [buttonTitle isEqualToString:@"Yes Please"]) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
-        ViewController *lvc = [storyboard instantiateViewControllerWithIdentifier:@"menu"];
+        MenuViewController *lvc = [storyboard instantiateViewControllerWithIdentifier:@"menu"];
         [self.navigationController pushViewController:lvc animated:YES];
     }
 }

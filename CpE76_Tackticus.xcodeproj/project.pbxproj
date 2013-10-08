@@ -23,6 +23,7 @@
 		C33FAB7A1803AD4100622E5D /* mg.wav in Resources */ = {isa = PBXBuildFile; fileRef = C33FAB791803AD4100622E5D /* mg.wav */; };
 		C33FAB7D1803AEEB00622E5D /* die.wav in Resources */ = {isa = PBXBuildFile; fileRef = C33FAB7B1803AEEB00622E5D /* die.wav */; };
 		C33FAB7E1803AEEB00622E5D /* gameover.wav in Resources */ = {isa = PBXBuildFile; fileRef = C33FAB7C1803AEEB00622E5D /* gameover.wav */; };
+		C33FAB861803BA1700622E5D /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C33FAB851803BA1700622E5D /* MenuViewController.m */; };
 		C38D770A17FE9C4000BA910D /* selected_white_scout.png in Resources */ = {isa = PBXBuildFile; fileRef = C38D770917FE9C4000BA910D /* selected_white_scout.png */; };
 		C3B21EAF17F2C27E0080FC92 /* scout_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9417F2C27E0080FC92 /* scout_icon.png */; };
 		C3B21EB017F2C27E0080FC92 /* black_scout.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9517F2C27E0080FC92 /* black_scout.png */; };
@@ -63,7 +64,6 @@
 		C3CB928C17E97D2700A8E255 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3CB928B17E97D2700A8E255 /* Default@2x.png */; };
 		C3CB928E17E97D2700A8E255 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3CB928D17E97D2700A8E255 /* Default-568h@2x.png */; };
 		C3CB929117E97D2700A8E255 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CB928F17E97D2700A8E255 /* MainStoryboard.storyboard */; };
-		C3CB929417E97D2700A8E255 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB929317E97D2700A8E255 /* ViewController.m */; };
 		C3F6EB5317ED34CD0085F7DF /* InGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6EB5217ED34CD0085F7DF /* InGameViewController.m */; };
 		C3F6EB5717ED3BCA0085F7DF /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6EB5617ED3BCA0085F7DF /* Tile.m */; };
 		C3F6EB5D17ED41F00085F7DF /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F6EB5C17ED41F00085F7DF /* Unit.m */; };
@@ -86,6 +86,8 @@
 		C33FAB791803AD4100622E5D /* mg.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mg.wav; sourceTree = "<group>"; };
 		C33FAB7B1803AEEB00622E5D /* die.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = die.wav; sourceTree = "<group>"; };
 		C33FAB7C1803AEEB00622E5D /* gameover.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameover.wav; sourceTree = "<group>"; };
+		C33FAB841803BA1600622E5D /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		C33FAB851803BA1700622E5D /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		C38D770917FE9C4000BA910D /* selected_white_scout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected_white_scout.png; sourceTree = "<group>"; };
 		C3B21E9417F2C27E0080FC92 /* scout_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scout_icon.png; sourceTree = "<group>"; };
 		C3B21E9517F2C27E0080FC92 /* black_scout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_scout.png; sourceTree = "<group>"; };
@@ -132,8 +134,6 @@
 		C3CB928B17E97D2700A8E255 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C3CB928D17E97D2700A8E255 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C3CB929017E97D2700A8E255 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		C3CB929217E97D2700A8E255 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C3CB929317E97D2700A8E255 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C3F6EB5117ED34CD0085F7DF /* InGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InGameViewController.h; sourceTree = "<group>"; };
 		C3F6EB5217ED34CD0085F7DF /* InGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InGameViewController.m; sourceTree = "<group>"; };
 		C3F6EB5517ED3BCA0085F7DF /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
@@ -241,6 +241,8 @@
 				C3B21E9317F2C2620080FC92 /* Resources */,
 				C3CB928617E97D2700A8E255 /* AppDelegate.h */,
 				C3CB928717E97D2700A8E255 /* AppDelegate.m */,
+				C33FAB841803BA1600622E5D /* MenuViewController.h */,
+				C33FAB851803BA1700622E5D /* MenuViewController.m */,
 				C3F6EB5117ED34CD0085F7DF /* InGameViewController.h */,
 				C3F6EB5217ED34CD0085F7DF /* InGameViewController.m */,
 				C3CB928F17E97D2700A8E255 /* MainStoryboard.storyboard */,
@@ -248,8 +250,6 @@
 				C3BC9FFA17FBCBE700DC1E55 /* SetPlayer1ViewController.m */,
 				C3BCA00017FBCC6500DC1E55 /* SetPlayer2ViewController.h */,
 				C3BCA00117FBCC6500DC1E55 /* SetPlayer2ViewController.m */,
-				C3CB929217E97D2700A8E255 /* ViewController.h */,
-				C3CB929317E97D2700A8E255 /* ViewController.m */,
 				C3CB927E17E97D2700A8E255 /* Supporting Files */,
 				C3F6EB5517ED3BCA0085F7DF /* Tile.h */,
 				C3F6EB5617ED3BCA0085F7DF /* Tile.m */,
@@ -384,12 +384,12 @@
 			files = (
 				C3CB928417E97D2700A8E255 /* main.m in Sources */,
 				C3CB928817E97D2700A8E255 /* AppDelegate.m in Sources */,
-				C3CB929417E97D2700A8E255 /* ViewController.m in Sources */,
 				C3F6EB5317ED34CD0085F7DF /* InGameViewController.m in Sources */,
 				C3F6EB5717ED3BCA0085F7DF /* Tile.m in Sources */,
 				C3F6EB5D17ED41F00085F7DF /* Unit.m in Sources */,
 				C3BC9FFB17FBCBE700DC1E55 /* SetPlayer1ViewController.m in Sources */,
 				C3BCA00217FBCC6500DC1E55 /* SetPlayer2ViewController.m in Sources */,
+				C33FAB861803BA1700622E5D /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
