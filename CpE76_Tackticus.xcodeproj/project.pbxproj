@@ -16,6 +16,13 @@
 		C33FAB4D180294FE00622E5D /* credits.png in Resources */ = {isa = PBXBuildFile; fileRef = C33FAB4C180294FE00622E5D /* credits.png */; };
 		C33FAB4F1802959400622E5D /* bggame.png in Resources */ = {isa = PBXBuildFile; fileRef = C33FAB4E1802959400622E5D /* bggame.png */; };
 		C33FAB5318029D5C00622E5D /* guideaa 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C33FAB5218029D5C00622E5D /* guideaa 2.png */; };
+		C33FAB6D1803A5FF00622E5D /* archer.wav in Resources */ = {isa = PBXBuildFile; fileRef = C33FAB691803A5FF00622E5D /* archer.wav */; };
+		C33FAB6E1803A5FF00622E5D /* knight.wav in Resources */ = {isa = PBXBuildFile; fileRef = C33FAB6A1803A5FF00622E5D /* knight.wav */; };
+		C33FAB721803A75D00622E5D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C33FAB711803A75D00622E5D /* AudioToolbox.framework */; };
+		C33FAB761803AB7600622E5D /* open.wav in Resources */ = {isa = PBXBuildFile; fileRef = C33FAB741803AB7600622E5D /* open.wav */; };
+		C33FAB7A1803AD4100622E5D /* mg.wav in Resources */ = {isa = PBXBuildFile; fileRef = C33FAB791803AD4100622E5D /* mg.wav */; };
+		C33FAB7D1803AEEB00622E5D /* die.wav in Resources */ = {isa = PBXBuildFile; fileRef = C33FAB7B1803AEEB00622E5D /* die.wav */; };
+		C33FAB7E1803AEEB00622E5D /* gameover.wav in Resources */ = {isa = PBXBuildFile; fileRef = C33FAB7C1803AEEB00622E5D /* gameover.wav */; };
 		C38D770A17FE9C4000BA910D /* selected_white_scout.png in Resources */ = {isa = PBXBuildFile; fileRef = C38D770917FE9C4000BA910D /* selected_white_scout.png */; };
 		C3B21EAF17F2C27E0080FC92 /* scout_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9417F2C27E0080FC92 /* scout_icon.png */; };
 		C3B21EB017F2C27E0080FC92 /* black_scout.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B21E9517F2C27E0080FC92 /* black_scout.png */; };
@@ -72,6 +79,13 @@
 		C33FAB4C180294FE00622E5D /* credits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = credits.png; sourceTree = "<group>"; };
 		C33FAB4E1802959400622E5D /* bggame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bggame.png; sourceTree = "<group>"; };
 		C33FAB5218029D5C00622E5D /* guideaa 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guideaa 2.png"; sourceTree = "<group>"; };
+		C33FAB691803A5FF00622E5D /* archer.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = archer.wav; sourceTree = "<group>"; };
+		C33FAB6A1803A5FF00622E5D /* knight.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = knight.wav; sourceTree = "<group>"; };
+		C33FAB711803A75D00622E5D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C33FAB741803AB7600622E5D /* open.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = open.wav; sourceTree = "<group>"; };
+		C33FAB791803AD4100622E5D /* mg.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mg.wav; sourceTree = "<group>"; };
+		C33FAB7B1803AEEB00622E5D /* die.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = die.wav; sourceTree = "<group>"; };
+		C33FAB7C1803AEEB00622E5D /* gameover.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameover.wav; sourceTree = "<group>"; };
 		C38D770917FE9C4000BA910D /* selected_white_scout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected_white_scout.png; sourceTree = "<group>"; };
 		C3B21E9417F2C27E0080FC92 /* scout_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scout_icon.png; sourceTree = "<group>"; };
 		C3B21E9517F2C27E0080FC92 /* black_scout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_scout.png; sourceTree = "<group>"; };
@@ -136,6 +150,7 @@
 				C3CB927817E97D2700A8E255 /* UIKit.framework in Frameworks */,
 				C3CB927A17E97D2700A8E255 /* Foundation.framework in Frameworks */,
 				C3CB927C17E97D2700A8E255 /* CoreGraphics.framework in Frameworks */,
+				C33FAB721803A75D00622E5D /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +160,12 @@
 		C3B21E9317F2C2620080FC92 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C33FAB7B1803AEEB00622E5D /* die.wav */,
+				C33FAB7C1803AEEB00622E5D /* gameover.wav */,
+				C33FAB791803AD4100622E5D /* mg.wav */,
+				C33FAB741803AB7600622E5D /* open.wav */,
+				C33FAB691803A5FF00622E5D /* archer.wav */,
+				C33FAB6A1803A5FF00622E5D /* knight.wav */,
 				C33FAB5218029D5C00622E5D /* guideaa 2.png */,
 				C33FAB4E1802959400622E5D /* bggame.png */,
 				C33FAB4C180294FE00622E5D /* credits.png */,
@@ -206,6 +227,7 @@
 		C3CB927617E97D2700A8E255 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C33FAB711803A75D00622E5D /* AudioToolbox.framework */,
 				C3CB927717E97D2700A8E255 /* UIKit.framework */,
 				C3CB927917E97D2700A8E255 /* Foundation.framework */,
 				C3CB927B17E97D2700A8E255 /* CoreGraphics.framework */,
@@ -219,6 +241,8 @@
 				C3B21E9317F2C2620080FC92 /* Resources */,
 				C3CB928617E97D2700A8E255 /* AppDelegate.h */,
 				C3CB928717E97D2700A8E255 /* AppDelegate.m */,
+				C3F6EB5117ED34CD0085F7DF /* InGameViewController.h */,
+				C3F6EB5217ED34CD0085F7DF /* InGameViewController.m */,
 				C3CB928F17E97D2700A8E255 /* MainStoryboard.storyboard */,
 				C3BC9FF917FBCBE700DC1E55 /* SetPlayer1ViewController.h */,
 				C3BC9FFA17FBCBE700DC1E55 /* SetPlayer1ViewController.m */,
@@ -227,8 +251,6 @@
 				C3CB929217E97D2700A8E255 /* ViewController.h */,
 				C3CB929317E97D2700A8E255 /* ViewController.m */,
 				C3CB927E17E97D2700A8E255 /* Supporting Files */,
-				C3F6EB5117ED34CD0085F7DF /* InGameViewController.h */,
-				C3F6EB5217ED34CD0085F7DF /* InGameViewController.m */,
 				C3F6EB5517ED3BCA0085F7DF /* Tile.h */,
 				C3F6EB5617ED3BCA0085F7DF /* Tile.m */,
 				C3F6EB5B17ED41F00085F7DF /* Unit.h */,
@@ -344,6 +366,12 @@
 				C33FAB4D180294FE00622E5D /* credits.png in Resources */,
 				C33FAB4F1802959400622E5D /* bggame.png in Resources */,
 				C33FAB5318029D5C00622E5D /* guideaa 2.png in Resources */,
+				C33FAB6D1803A5FF00622E5D /* archer.wav in Resources */,
+				C33FAB6E1803A5FF00622E5D /* knight.wav in Resources */,
+				C33FAB761803AB7600622E5D /* open.wav in Resources */,
+				C33FAB7A1803AD4100622E5D /* mg.wav in Resources */,
+				C33FAB7D1803AEEB00622E5D /* die.wav in Resources */,
+				C33FAB7E1803AEEB00622E5D /* gameover.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +468,10 @@
 		C3CB929817E97D2700A8E255 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CpE76_Tackticus/CpE76_Tackticus-Prefix.pch";
 				INFOPLIST_FILE = "CpE76_Tackticus/CpE76_Tackticus-Info.plist";
@@ -451,6 +483,10 @@
 		C3CB929917E97D2700A8E255 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CpE76_Tackticus/CpE76_Tackticus-Prefix.pch";
 				INFOPLIST_FILE = "CpE76_Tackticus/CpE76_Tackticus-Info.plist";

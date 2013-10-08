@@ -10,6 +10,7 @@
 #import "Tile.h"
 #import "Unit.h"
 #import "ViewController.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface InGameViewController : UIViewController <UIAlertViewDelegate>
 - (IBAction)tile:(id)sender;

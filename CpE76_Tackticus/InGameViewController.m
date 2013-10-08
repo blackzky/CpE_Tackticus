@@ -30,6 +30,8 @@
     int PLAYER;
     
     BOOL AFTER_AN_ACTION;
+    
+    NSString *killSound, *scoutSkill, *knightSkill, *mageSkill, *gameOverSound;
 }
 @synthesize P1Name;
 @synthesize P2Name;
@@ -52,6 +54,20 @@
     [super viewDidLoad];
 	
     self.navigationItem.hidesBackButton = YES;
+    
+    /*temp */
+    
+    killSound = @"die";
+    scoutSkill = @"archer";
+    knightSkill = @"knight";
+    mageSkill = @"mg";
+    gameOverSound = @"gameover";
+    
+    SystemSoundID soundID;
+    NSString *soundFile = [[NSBundle mainBundle] pathForResource:@"open" ofType:@"wav"];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:soundFile] ,&soundID);
+    AudioServicesPlayAlertSound(soundID);
+    
     
     AFTER_AN_ACTION = false;
     
@@ -346,6 +362,7 @@
 }
 
 -(void)useSkillOnTile:(Tile *)tile inIndex:(int)index{
+    NSString *actionSound = @"";
     if(CUR_TILE.currentMP - CUR_TILE.unit.skillCost >= 0){
         if([CUR_TILE.unit.type isEqualToString:@"MAGE"]){
             if((tile.owner == CUR_TILE.owner)){
@@ -359,19 +376,31 @@
             }
             
             CUR_TILE.currentMP -= CUR_TILE.unit.skillCost;
+            actionSound = mageSkill;
         }else if([CUR_TILE.unit.type isEqualToString:@"KNIGHT"]){
             tile.currentHP = tile.currentHP - CUR_TILE.unit.skillDamage; //time two damage
             CUR_TILE.currentMP -= CUR_TILE.unit.skillCost;
+            actionSound = knightSkill;
         }else if([CUR_TILE.unit.type isEqualToString:@"SCOUT"]){
             tile.currentMP = tile.currentMP - CUR_TILE.unit.skillDamage; //damage mana of target
             CUR_TILE.currentMP -= CUR_TILE.unit.skillCost;
+            actionSound = scoutSkill;
         }
+        
     }
     
-    
+    /* Kill a unit */
     if(tile.currentHP <= 0){
+        actionSound = killSound;
         Tile  *emptyTile = [[Tile alloc] initWithOwner:0 AndUnit:nil AndCurrentHP:0 AndCurrentMP:0];
         [Board replaceObjectAtIndex:index withObject:emptyTile];
+    }
+    
+    if(![self gameOver]){
+        SystemSoundID soundID;
+        NSString *soundFile = [[NSBundle mainBundle] pathForResource:actionSound ofType:@"wav"];
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:soundFile] ,&soundID);
+        AudioServicesPlayAlertSound(soundID);
     }
     
 }
@@ -441,6 +470,11 @@
         [self clearSelected];
         
         if([self gameOver]){
+            SystemSoundID soundID;
+            NSString *soundFile = [[NSBundle mainBundle] pathForResource:gameOverSound ofType:@"wav"];
+            AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:soundFile] ,&soundID);
+            AudioServicesPlayAlertSound(soundID);
+            
             UIAlertView *alertDialog;
             NSString *msg =[NSString stringWithFormat:@"%@ won the game!", [self getOwner:PLAYER]];
             alertDialog= [[UIAlertView alloc] initWithTitle:@"Game Over"
