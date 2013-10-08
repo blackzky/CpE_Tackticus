@@ -11,7 +11,7 @@
 #import "Unit.h"
 #import "ViewController.h"
 
-@interface InGameViewController : UIViewController
+@interface InGameViewController : UIViewController <UIAlertViewDelegate>
 - (IBAction)tile:(id)sender;
 - (IBAction)playerAction:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *tileOutlet;
@@ -55,6 +55,8 @@
 @property (strong, nonatomic) NSString *P2Name;
 @property (strong, nonatomic) NSString *P1Units;
 @property (strong, nonatomic) NSString *P2Units;
+
+- (IBAction)openMenu:(id)sender;
 
 
 @end

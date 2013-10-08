@@ -439,15 +439,11 @@
             NSString *msg =[NSString stringWithFormat:@"%@ won the game!", [self getOwner:PLAYER]];
             alertDialog= [[UIAlertView alloc] initWithTitle:@"Game Over"
                                                     message:msg
-                                                   delegate:nil
+                                                   delegate:self
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles: nil];
             [alertDialog show];
             
- 
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
-            ViewController *lvc = [storyboard instantiateViewControllerWithIdentifier:@"menu"];
-            [self.navigationController pushViewController:lvc animated:YES];
         }else{
             [self setNextPlayer];
         }
@@ -473,7 +469,7 @@
                 UIAlertView *alertDialog;
                 alertDialog= [[UIAlertView alloc] initWithTitle:@"Not Enough Mana"
                                                         message:@"Not enough mana to use skill"
-                                                       delegate:nil
+                                                       delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles: nil];
                 [alertDialog show];
@@ -483,6 +479,27 @@
         [self highlightAdjacent];
         if(!AFTER_AN_ACTION) CUR_TILE.status = @"selected";
         [self updateBoard];
+    }
+}
+
+
+- (IBAction)openMenu:(id)sender {
+    UIAlertView *alertDialog;
+    
+    alertDialog= [[UIAlertView alloc] initWithTitle:@"Menu"
+                                            message:@"Are you sure you want to go to menu"
+                                           delegate:self
+                                  cancelButtonTitle:@"Of course"
+                                  otherButtonTitles: @"Nope", nil];
+    [alertDialog show];
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
+    if ([buttonTitle isEqualToString:@"OK"] || [buttonTitle isEqualToString:@"Of course"]) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
+        ViewController *lvc = [storyboard instantiateViewControllerWithIdentifier:@"menu"];
+        [self.navigationController pushViewController:lvc animated:YES];
     }
 }
 @end

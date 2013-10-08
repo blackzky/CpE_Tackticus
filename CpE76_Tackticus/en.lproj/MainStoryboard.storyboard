@@ -590,7 +590,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Game" id="BwL-ea-kdH">
-                        <barButtonItem key="rightBarButtonItem" title="Menu" id="HCF-sa-tzZ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Menu" id="HCF-sa-tzZ">
+                            <connections>
+                                <action selector="openMenu:" destination="wxT-eh-dwA" id="M5B-ST-3Et"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="curUnitAR" destination="MCX-0M-NsL" id="EKL-4Y-mcw"/>
@@ -854,51 +858,6 @@
         <image name="move.png" width="32" height="32"/>
         <image name="range.png" width="32" height="32"/>
     </resources>
-    <classes>
-        <class className="InGameViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InGameViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="playerAction:"/>
-                <relationship kind="action" name="tile:"/>
-                <relationship kind="outlet" name="curUnitAR" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="curUnitAtk" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="curUnitHp" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="curUnitMR" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="curUnitMp" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="curUnitOwner" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="curUnitSkillCost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="curUnitType" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cur_player" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerAction" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="tileOutlet" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="SetPlayer1ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SetPlayer1ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="AddUnit:"/>
-                <relationship kind="action" name="HideBKP:"/>
-                <relationship kind="action" name="UnitType_segAction:"/>
-                <relationship kind="outlet" name="P1Name_tf" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="UnitDescription_tv" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="UnitType_segOutlet" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="SetPlayer2ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SetPlayer2ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="AddUnit:"/>
-                <relationship kind="action" name="HideBKP:"/>
-                <relationship kind="action" name="UnitType_segAction:"/>
-                <relationship kind="outlet" name="P2Name_tf" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="UnitDescription_tv" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="UnitType_segOutlet" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
