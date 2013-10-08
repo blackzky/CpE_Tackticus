@@ -444,13 +444,10 @@
                                           otherButtonTitles: nil];
             [alertDialog show];
             
-            //DO SOMETHING AFTER GAME OVER
-            
-            /*
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    ViewController *vc = (ViewController *)[storyboard instantiateViewControllerWithIdentifier:@"menu"];
-            */
-             
+ 
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
+            ViewController *lvc = [storyboard instantiateViewControllerWithIdentifier:@"menu"];
+            [self.navigationController pushViewController:lvc animated:YES];
         }else{
             [self setNextPlayer];
         }
