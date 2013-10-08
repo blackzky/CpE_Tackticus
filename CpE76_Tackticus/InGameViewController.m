@@ -11,6 +11,7 @@
 
 @interface InGameViewController ()
 
+
 @end
 
 @implementation InGameViewController
@@ -66,9 +67,9 @@
     ACTION = @"Move";
     
     /* INIT BASE STATS OF UNITS */
-    MAGE = [[Unit alloc] initType:@"MAGE" hp: 5 mp: 10 bDamage: 1 sDamage: -3 moveRange: 2 atkRange: 2 skillRange: 2 skillCost:2];
-    KNIGHT = [[Unit alloc] initType:@"KNIGHT" hp: 10 mp: 5 bDamage: 2 sDamage: 4 moveRange: 1 atkRange: 1 skillRange: 2 skillCost:1];
-    SCOUT = [[Unit alloc] initType:@"SCOUT" hp: 5 mp: 5 bDamage: 3 sDamage: 3 moveRange: 2 atkRange: 2 skillRange: 2 skillCost:1];
+    MAGE = [[Unit alloc] initType:@"MAGE" hp: 20 mp: 30 bDamage: 3 sDamage: -5 moveRange: 2 atkRange: 2 skillRange: 2 skillCost:5];
+    KNIGHT = [[Unit alloc] initType:@"KNIGHT" hp: 30 mp: 15 bDamage: 4 sDamage: 8 moveRange: 1 atkRange: 1 skillRange: 1 skillCost:5];
+    SCOUT = [[Unit alloc] initType:@"SCOUT" hp: 25 mp: 15 bDamage: 3 sDamage: 10 moveRange: 2 atkRange: 2 skillRange: 2 skillCost:5];
     
     Board = [[NSMutableArray alloc] init];
     for(int i = 0; i < 16; i++){
@@ -219,7 +220,7 @@
     alertDialog= [[UIAlertView alloc] initWithTitle:@"Current Player"
                                            message:msg
                                           delegate:nil
-                                 cancelButtonTitle:@"OK"
+                                 cancelButtonTitle:@"Got it"
                                  otherButtonTitles: nil];
     [alertDialog show];
 }
@@ -474,8 +475,8 @@
                 UIAlertView *alertDialog;
                 alertDialog= [[UIAlertView alloc] initWithTitle:@"Not Enough Mana"
                                                         message:@"Not enough mana to use skill"
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Oh no!"
                                               otherButtonTitles: nil];
                 [alertDialog show];
             }
