@@ -347,11 +347,16 @@
 -(void)useSkillOnTile:(Tile *)tile inIndex:(int)index{
     if(CUR_TILE.currentMP - CUR_TILE.unit.skillCost >= 0){
         if([CUR_TILE.unit.type isEqualToString:@"MAGE"]){
-            if(tile.currentHP - CUR_TILE.unit.skillDamage > tile.unit.baseHP){
-                tile.currentHP = CUR_TILE.unit.baseHP;
-            }else{
+            if((tile.owner == CUR_TILE.owner)){
                 tile.currentHP = tile.currentHP - CUR_TILE.unit.skillDamage; //heal
+            }else{
+                tile.currentHP = tile.currentHP + CUR_TILE.unit.skillDamage; //damage
             }
+            
+            if( (tile.currentHP > tile.unit.baseHP) ){
+                tile.currentHP = tile.unit.baseHP;
+            }
+            
             CUR_TILE.currentMP -= CUR_TILE.unit.skillCost;
         }else if([CUR_TILE.unit.type isEqualToString:@"KNIGHT"]){
             tile.currentHP = tile.currentHP - CUR_TILE.unit.skillDamage; //time two damage
@@ -487,16 +492,16 @@
     UIAlertView *alertDialog;
     
     alertDialog= [[UIAlertView alloc] initWithTitle:@"Menu"
-                                            message:@"Are you sure you want to go to menu"
+                                            message:@"Are you sure you want to go to menu?"
                                            delegate:self
-                                  cancelButtonTitle:@"Of course"
+                                  cancelButtonTitle:@"Yes Please"
                                   otherButtonTitles: @"Nope", nil];
     [alertDialog show];
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
-    if ([buttonTitle isEqualToString:@"OK"] || [buttonTitle isEqualToString:@"Of course"]) {
+    if ([buttonTitle isEqualToString:@"OK"] || [buttonTitle isEqualToString:@"Yes Please"]) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
         ViewController *lvc = [storyboard instantiateViewControllerWithIdentifier:@"menu"];
         [self.navigationController pushViewController:lvc animated:YES];
